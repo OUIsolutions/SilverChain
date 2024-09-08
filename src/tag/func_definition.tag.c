@@ -42,11 +42,11 @@ void Tag_replace_import_in_files(
     const char *import_module_dir,
     const char *import_module_file
 ){
-    for(int i = 0; i < self->itens->size;i++){
+    for(int i = 1; i < self->itens->size;i++){
 
         char *current_file_path = self->itens->strings[i];
-
-        CTextStack *relative_path = make_relative_path(current_file_path,import_module_dir,import_module_file);
+        char *last_file_path = self->itens->strings[i-1];
+        CTextStack *relative_path = make_relative_path(last_file_path,import_module_dir,import_module_file);
         CTextStack *text_to_insert = stack.newStack_string("\n//silver_chain_scope_start\n");
         stack.text(text_to_insert,"//mannaged by silver chain\n");
         stack.format(text_to_insert,"#include \"%t\"\n",relative_path);
