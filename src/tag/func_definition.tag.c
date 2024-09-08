@@ -59,7 +59,6 @@ void Tag_replace_import_in_files(
         if(start_scope_index == -1){
             //means its not implemented
             stack.self_insert_at(file_content_stack,0,text_to_insert->rendered_text);
-            stack.text(file_content_stack,file_content);
             dtw.write_string_file_content(current_file_path,file_content_stack->rendered_text);
             stack.free(file_content_stack);
             stack.free(text_to_insert);
