@@ -1,4 +1,4 @@
-#include "imports.globals.h"
+#include "imports.func_declaration.h"
 
 #ifndef SILVER_CHAIN_FUNC_DEFINITION
 #define SILVER_CHAIN_FUNC_DEFINITION

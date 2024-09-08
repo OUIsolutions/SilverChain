@@ -1,5 +1,5 @@
 
-#include "imports.type1.h"
+#include "imports.globals.h"
 
 #ifndef SILVER_CHAIN_FUNC_DECLARATION
 #define SILVER_CHAIN_FUNC_DECLARATION
