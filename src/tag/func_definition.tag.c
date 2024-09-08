@@ -50,7 +50,7 @@ void Tag_replace_import_in_files(
         CTextStack *text_to_insert = stack.newStack_string("\n//silver_chain_scope_start\n");
         stack.text(text_to_insert,"//mannaged by silver chain\n");
         stack.format(text_to_insert,"#include \"%t\"\n",relative_path);
-        stack.text(text_to_insert,"\n//silver_chain_scope_end\n");
+        stack.text(text_to_insert,"//silver_chain_scope_end\n");
         stack.free(relative_path);
 
         char *file_content = dtw.load_string_file_content(current_file_path);
@@ -66,7 +66,7 @@ void Tag_replace_import_in_files(
             continue;
         }
 
-        int end_scope_index = stack.index_of(file_content_stack,"\n//silver_chain_scope_end\n");
+        int end_scope_index = stack.index_of(file_content_stack,"//silver_chain_scope_end\n");
         if(end_scope_index == -1){
             printf(" file %s not provides  end scope\n",current_file_path);
             exit(1);
