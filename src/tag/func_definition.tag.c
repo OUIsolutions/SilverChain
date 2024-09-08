@@ -30,7 +30,7 @@ void Tag_implement(Tag *self,const char *point,const char *project_short_cut,con
 
     CTextStack *final_text_path = stack.newStack_string_empty();
     stack.format(final_text_path,"%s/.imports.%s.h",point,self->name);
-    dtw.write_string_file_content(final_text_path,final_text->rendered_text);
+    dtw.write_string_file_content(final_text_path->rendered_text,final_text->rendered_text);
 }
 
 

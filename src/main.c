@@ -8,12 +8,12 @@ int main(){
 
     char *src = "src";
     DtwStringArray *tags = newDtwStringArray();
-    DtwStringArray_add_item(tags,"dependencies");
-    DtwStringArray_add_item(tags,"types");
-    DtwStringArray_add_item(tags,"globals");
-    DtwStringArray_add_item(tags,"func_declaration");
-    DtwStringArray_add_item(tags,"func_definition");
-    DtwStringArray_add_item(tags,"final");
+    dtw.string_array.append(tags,"dependencies");
+    dtw.string_array.append(tags,"types");
+    dtw.string_array.append(tags,"globals");
+    dtw.string_array.append(tags,"func_declaration");
+    dtw.string_array.append(tags,"func_definition");
+    dtw.string_array.append(tags,"final");
 
     generate_code("src","imports","silverchain",tags);
 

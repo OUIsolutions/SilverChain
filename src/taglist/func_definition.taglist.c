@@ -30,9 +30,9 @@ void TagList_add_item(TagList *self, const char *tag,const char *path,double pri
 
 }
 
-void TagList_ordanate_tag_by_priority(void **tag1,void **tag2){
-    Tag *t1 = (Tag*)*tag1;
-    Tag *t2 = (Tag*)*tag2;
+int TagList_ordanate_tag_by_priority(const void *tag1,const void *tag2){
+    Tag *t1 = (Tag*)tag1;   
+    Tag *t2 = (Tag*)tag2;
     if(t1->priority > t2->priority){
         return 1;
     }else if(t1->priority < t2->priority){
