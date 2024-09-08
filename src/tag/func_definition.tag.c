@@ -50,6 +50,7 @@ void Tag_replace_import_in_files(
         CTextStack *text_to_insert = stack.newStack_string("//silver_chain_scope_start");
         stack.text(text_to_insert,"mannaged by silver chain\n");
         stack.format(text_to_insert,"#include \"%t\"\n",relative_path);
+        stack.text(text_to_insert,"//silver_chain_scope_end\n");
         stack.free(relative_path);
 
         char *file_content = dtw.load_string_file_content(current_file_path);
