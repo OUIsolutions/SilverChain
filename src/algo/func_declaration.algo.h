@@ -1,7 +1,7 @@
 #include "../imports/imports.globals.h"
 
 
-bool is_name_a_tag(DtwStringArray *tags,const char *name);
+int  get_tag_index(DtwStringArray *tags,const char *name);
 
 double get_tag_priority(DtwStringArray *tags,const char *name);
 

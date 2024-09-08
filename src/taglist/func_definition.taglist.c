@@ -31,7 +31,7 @@ void TagList_add_item(TagList *self, const char *tag,const char *path,int priori
 }
 
 int TagList_ordanate_tag_by_priority(const void *tag1,const void *tag2){
-    Tag *t1 = *(Tag**)tag1;   
+    Tag *t1 = *(Tag**)tag1;
     Tag *t2 = *(Tag**)tag2;
     if(t1->priority > t2->priority){
         return 1;
@@ -39,11 +39,12 @@ int TagList_ordanate_tag_by_priority(const void *tag1,const void *tag2){
     if(t1->priority < t2->priority){
         return -1;
     }
+    //printf("%s | %s\n",t1->name,t2->name);;
     //ordenate by alphabet
     return strcmp(t1->name,t2->name);
 }
 void TagList_implement(TagList *self,const char *point,const char *project_short_cut,const char *src){
- 
+
     qsort(self->tags, self->size, sizeof(Tag*), TagList_ordanate_tag_by_priority);
 
     for(int i = 1; i < self->size;i++){

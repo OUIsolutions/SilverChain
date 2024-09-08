@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "imports.func_declaration.h": "c"
+        "imports.func_declaration.h": "c",
+        "types.tag.h": "c"
     }
 }

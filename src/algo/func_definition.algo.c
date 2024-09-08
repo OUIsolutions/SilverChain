@@ -2,17 +2,17 @@
 
 
 
-bool is_name_a_tag(DtwStringArray *tags,const char *name){
+int  get_tag_index(DtwStringArray *tags,const char *name){
 
     for(int i = 0; i < tags->size; i++){
 
         char *current_tag = tags->strings[i];
         if(dtw_starts_with(name,current_tag)){
-            return true;
+            return i;
         }
 
     }
-    return false;
+    return -1;
 }
 
 

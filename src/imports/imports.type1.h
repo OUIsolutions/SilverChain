@@ -3,6 +3,6 @@
 #ifndef SILVER_CHAIN_TYPE1
 #define SILVER_CHAIN_TYPE1
 
-#include "../taglist/type1.taglist.h"
+#include "../taglist/typesB.taglist.h"
 
 #endif
