@@ -47,15 +47,15 @@ void Tag_replace_import_in_files(
         char *current_file_path = self->itens->strings[i];
 
         CTextStack *relative_path = make_relative_path(current_file_path,import_module_dir,import_module_file);
-        CTextStack *text_to_insert = stack.newStack_string("//silver_chain_scope_start\n");
+        CTextStack *text_to_insert = stack.newStack_string("\n//silver_chain_scope_start\n");
         stack.text(text_to_insert,"//mannaged by silver chain\n");
         stack.format(text_to_insert,"#include \"%t\"\n",relative_path);
-        stack.text(text_to_insert,"//silver_chain_scope_end\n");
+        stack.text(text_to_insert,"\n//silver_chain_scope_end\n");
         stack.free(relative_path);
 
         char *file_content = dtw.load_string_file_content(current_file_path);
         CTextStack *file_content_stack = stack.newStack_string(current_file_path);
-        int start_scope_index = stack.index_of(file_content_stack,"//silver_chain_scope_start");
+        int start_scope_index = stack.index_of(file_content_stack,"\n//silver_chain_scope_start\n");
         if(start_scope_index == -1){
             //means its not implemented
             stack.self_insert_at(file_content_stack,0,text_to_insert->rendered_text);
@@ -66,7 +66,7 @@ void Tag_replace_import_in_files(
             continue;
         }
 
-        int end_scope_index = stack.index_of(file_content_stack,"//siver_chain_scope_end");
+        int end_scope_index = stack.index_of(file_content_stack,"\n//siver_chain_scope_end\n");
         if(end_scope_index == -1){
             printf(" file %s not provides  end scope\n",current_file_path);
             exit(1);
