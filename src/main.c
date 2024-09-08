@@ -6,10 +6,9 @@ int main(){
     dtw = newDtwNamespace();
     stack = newCTextStackModule();
 
-    char *src = "src";
     DtwStringArray *tags = newDtwStringArray();
     dtw.string_array.append(tags,"dependencies");
-    dtw.string_array.append(tags,"types");
+    dtw.string_array.append(tags,"type");
     dtw.string_array.append(tags,"globals");
     dtw.string_array.append(tags,"func_declaration");
     dtw.string_array.append(tags,"func_definition");
