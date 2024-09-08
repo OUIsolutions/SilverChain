@@ -37,14 +37,24 @@ CTextStack * make_relative_path(
 
 
     int total_levels = count_path_levels(current_file);
-    if(dtw_starts_with(current_file,dest_dir)){
+    bool is_in_dest_dir = dtw_starts_with(current_file,dest_dir);
+    if(is_in_dest_dir){
         total_levels -= 1;
     }
     CTextStack *final_path = stack.newStack_string_empty();
     for(int i = 0; i < total_levels; i++){
         stack.text(final_path,"../");
     }
-    stack.text(final_path,dest_file);
+    if(is_in_dest_dir){
+        CTextStack *formmated_dest = stack.newStack_string(dest_file);
+        stack.self_pop(formmated_dest,0,strlen(dest_dir));
+        stack.text(final_path,formmated_dest->rendered_text);
+        stack.free(formmated_dest);
+    }
+    
+    if(!is_in_dest_dir){
+        stack.text(final_path,dest_file);
+    }
     return final_path;
 
 
