@@ -18,7 +18,7 @@ Tag * TagList_find_tag_element(TagList *self,const char *tag){
     return NULL;
 }
 
-void TagList_add_item(TagList *self, const char *tag,const char *path,double priority){
+void TagList_add_item(TagList *self, const char *tag,const char *path,int priority){
     Tag *tag_to_add = TagList_find_tag_element(self,tag);
     if(tag_to_add == NULL){
         tag_to_add = newTag(tag,priority);
@@ -35,19 +35,21 @@ int TagList_ordanate_tag_by_priority(const void *tag1,const void *tag2){
     Tag *t2 = *(Tag**)tag2;
     if(t1->priority > t2->priority){
         return 1;
-    }else if(t1->priority < t2->priority){
+    }
+    if(t1->priority < t2->priority){
         return -1;
     }
-    return 0;
+    //ordenate by alphabet
+    return strcmp(t1->name,t2->name);
 }
-void TagList_implement(TagList *self,const char *point,const char *project_short_cut){
+void TagList_implement(TagList *self,const char *point,const char *project_short_cut,const char *src){
  
     qsort(self->tags, self->size, sizeof(Tag*), TagList_ordanate_tag_by_priority);
 
     for(int i = 1; i < self->size;i++){
         Tag *current = self->tags[i];
         char *prev = self->tags[i-1]->name;
-        Tag_implement(current,point,project_short_cut,prev);
+        Tag_implement(current,point,project_short_cut,prev,src);
     }
 }
 

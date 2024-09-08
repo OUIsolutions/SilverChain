@@ -1,32 +1,51 @@
 #include "../imports/imports.func_declaration.h"
 
 
-double get_tag_number(int position, const char *current_tag,const char* name){
 
-    int current_tag_size = strlen(current_tag);
-    CTextStack *number_text = stack.newStack_string(name);
-    stack.self_substr(number_text,0,current_tag_size);
-
-    CTextStack *final_number = stack.newStack_string_empty();
-    stack.format(final_number,"%d.%t",position,number_text);
-    double final_number_double = stack.parse_to_double(final_number);
-
-    stack.free(final_number);
-    stack.free(number_text);
-    return final_number_double;
-
-}
-
-double get_tag_priority(DtwStringArray *tags,const char *name){
-
+bool is_name_a_tag(DtwStringArray *tags,const char *name){
 
     for(int i = 0; i < tags->size; i++){
 
         char *current_tag = tags->strings[i];
         if(dtw_starts_with(name,current_tag)){
-            return get_tag_number(i,current_tag,name);
+            return true;
         }
 
     }
-    return -1;
+    return false;
+}
+
+
+int count_path_levels(const char *path){
+    CTextStack *path_stack = stack.newStack_string(path);
+    stack.replace(path_stack,"/","");
+    int count = 0;
+    for(int i = 0; i < path_stack->size; i++){
+        if(path_stack->rendered_text[i] == '/'){
+            count++;
+        }
+    }   
+    stack.free(path_stack);
+    return count;
+}
+
+CTextStack * make_relative_path(
+    const char *current_file,
+    const char *dest_dir,
+    const char *dest_file
+){
+  
+
+    int total_levels = count_path_levels(current_file);
+    if(dtw_starts_with(current_file,dest_dir)){
+        total_levels -= 1;
+    }
+    CTextStack *final_path = stack.newStack_string_empty();
+    for(int i = 0; i < total_levels; i++){
+        stack.text(final_path,"../");
+    }
+    stack.text(final_path,dest_file);
+    return final_path;
+    
+    
 }

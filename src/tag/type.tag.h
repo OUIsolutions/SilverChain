@@ -2,6 +2,6 @@
 
 typedef  struct{
     char *name;
-    double priority;
+    int priority;
     DtwStringArray *itens;
 }Tag;

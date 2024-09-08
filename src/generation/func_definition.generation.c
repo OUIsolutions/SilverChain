@@ -13,14 +13,14 @@ void generate_code(const char *src,const char *import_dir,const char *project_sh
         CTextStack *name_stack = stack.newStack_string(name);
         int first_dot = stack.index_of_char(name_stack,'.');
         stack.self_substr(name_stack,0,first_dot);
-        double priority = get_tag_priority(tags,name_stack->rendered_text);
-        if(priority != -1){
-            TagList_add_item(itens,name_stack->rendered_text,current,priority);
+
+        if(is_name_a_tag(tags,name_stack->rendered_text)){
+            TagList_add_item(itens,name_stack->rendered_text,current,i);
         }
         dtw.path.free(path);
         stack.free(name_stack);
     }
 
-    TagList_implement(itens,import_dir,project_short_cut);
+    TagList_implement(itens,import_dir,project_short_cut,src);
     TagList_free(itens);
 }
