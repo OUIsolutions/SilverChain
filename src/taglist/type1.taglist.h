@@ -2,6 +2,6 @@
 
 
 typedef struct{
-    Tag *tags;
+    Tag **tags;
     int size;
 } TagList;

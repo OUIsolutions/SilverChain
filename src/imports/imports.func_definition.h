@@ -5,5 +5,5 @@
 #include "../tag/func_definition.tag.c"
 #include "../generation/func_definition.generation.c"
 #include "../taglist/func_definition.taglist.c"
-
+#include "../algo/func_definition.algo.c"
 #endif

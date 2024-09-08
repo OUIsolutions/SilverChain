@@ -7,5 +7,5 @@
 #include "../tag/func_declaration.tag.h"
 #include "../generation/func_declaration.generation.h"
 #include "../taglist/func_declaration.taglist.h"
-
+#include "../algo/func_declaration.algo.h"
 #endif
