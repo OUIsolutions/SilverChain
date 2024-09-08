@@ -54,7 +54,7 @@ void Tag_replace_import_in_files(
         stack.free(relative_path);
 
         char *file_content = dtw.load_string_file_content(current_file_path);
-        CTextStack *file_content_stack = stack.newStack_string(current_file_path);
+        CTextStack *file_content_stack = stack.newStack_string(file_content);
         int start_scope_index = stack.index_of(file_content_stack,"\n//silver_chain_scope_start\n");
         if(start_scope_index == -1){
             //means its not implemented
