@@ -2,17 +2,6 @@
 
 
 
-CTextStack *create_module_import_content(const char *current_fie ,const char *import_point,const char *module_path){
-    CTextStack *relative_path = make_relative_path(current_fie,import_point,module_path);
-
-    CTextStack *final_text = stack.newStack_string("//silver_chain_scope_start");
-    stack.text(final_text,"mannaged by silver chain\n");
-    stack.format(final_text,"#include \"%t\"\n",relative_path);
-    stack.free(relative_path);
-
-    return final_text;
-
-}
 int  get_tag_index(DtwStringArray *tags,const char *name){
 
     for(int i = 0; i < tags->size; i++){
@@ -35,7 +24,7 @@ int count_path_levels(const char *path){
         if(path_stack->rendered_text[i] == '/'){
             count++;
         }
-    }   
+    }
     stack.free(path_stack);
     return count;
 }
@@ -45,7 +34,7 @@ CTextStack * make_relative_path(
     const char *dest_dir,
     const char *dest_file
 ){
-  
+
 
     int total_levels = count_path_levels(current_file);
     if(dtw_starts_with(current_file,dest_dir)){
@@ -57,6 +46,6 @@ CTextStack * make_relative_path(
     }
     stack.text(final_path,dest_file);
     return final_path;
-    
-    
+
+
 }

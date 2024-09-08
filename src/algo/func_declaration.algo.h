@@ -1,6 +1,5 @@
 #include "../imports/imports.globals.h"
 
-CTextStack *create_module_import_content(const char *current_fie ,const char *import_point,const char *module_path);
 
 int  get_tag_index(DtwStringArray *tags,const char *name);
 
