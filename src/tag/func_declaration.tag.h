@@ -1,5 +1,5 @@
 
-#include "../imports/imports.type.h"
+#include "../imports/imports.globals.h"
 
 
 Tag *newTag(const char *name);
