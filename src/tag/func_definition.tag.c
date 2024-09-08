@@ -72,7 +72,7 @@ void Tag_replace_import_in_files(
             exit(1);
         }
         //replace the content
-        stack.self_substr(file_content_stack,start_scope_index,end_scope_index);
+        stack.self_substr(file_content_stack,start_scope_index,end_scope_index+strlen("//silver_chain_scope_end\n"));
         stack.self_insert_at(file_content_stack,start_scope_index,text_to_insert->rendered_text);
         dtw.write_string_file_content(current_file_path,file_content_stack->rendered_text);
         stack.free(file_content_stack);
