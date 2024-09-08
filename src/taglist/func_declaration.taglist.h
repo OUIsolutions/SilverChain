@@ -9,6 +9,6 @@ void TagList_ordanate_tag_by_priority(void **tag1,void **tag2);
 
 void TagList_add_item(TagList *self, const char *tag,const char *path,double priority);
 
-void TagList_implement(TagList *self,const char *point,const char *project_short_cut,const char *prev);
+void TagList_implement(TagList *self,const char *point,const char *project_short_cut);
 
 void TagList_free(TagList *self);

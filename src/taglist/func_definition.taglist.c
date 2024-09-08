@@ -40,12 +40,13 @@ void TagList_ordanate_tag_by_priority(void **tag1,void **tag2){
     }
     return 0;
 }
-void TagList_implement(TagList *self,const char *point,const char *project_short_cut,const char *prev){
+void TagList_implement(TagList *self,const char *point,const char *project_short_cut){
  
     qsort(self->tags, self->size, sizeof(Tag*), TagList_ordanate_tag_by_priority);
 
-    for(int i = 0; i < self->size;i++){
+    for(int i = 1; i < self->size;i++){
         Tag *current = self->tags[i];
+        char *prev = self->tags[i-1]->name;
         Tag_implement(current,point,project_short_cut,prev);
     }
 }
