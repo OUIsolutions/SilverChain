@@ -47,7 +47,7 @@ void Tag_replace_import_in_files(
         char *current_file_path = self->itens->strings[i];
 
         CTextStack *relative_path = make_relative_path(current_file_path,import_module_dir,import_module_file);
-        CTextStack *text_to_insert = stack.newStack_string("//silver_chain_scope_start");
+        CTextStack *text_to_insert = stack.newStack_string("//silver_chain_scope_start\n");
         stack.text(text_to_insert,"mannaged by silver chain\n");
         stack.format(text_to_insert,"#include \"%t\"\n",relative_path);
         stack.text(text_to_insert,"//silver_chain_scope_end\n");
