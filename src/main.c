@@ -14,6 +14,6 @@ int main(){
     dtw.string_array.append(tags,"func_definition");
     dtw.string_array.append(tags,"final");
 
-    generate_code("src","imports","silverchain",tags);
+    generate_code("src","src/imports","silverchain",tags);
 
 }
