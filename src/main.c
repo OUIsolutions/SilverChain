@@ -60,6 +60,6 @@ int main(int argc,char *argv[]){
     }
 
 
-    generate_code(src,imports,project_short_cut,tags);
+    generate_code(src,imports,project_short_cut,tags,true,NULL,NULL);
 
 }

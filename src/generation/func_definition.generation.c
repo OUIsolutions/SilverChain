@@ -4,8 +4,62 @@
 #include "../imports/imports.func_declaration.h"
 //silver_chain_scope_end
 
+char *get_main_path(DtwStringArray *src_listage,TagList *itens,char *main_name){
 
-void generate_code(const char *src,const char *import_dir,const char *project_short_cut,DtwStringArray * tags){
+    for(int i = 0; i < itens->size;i++){
+        char *current = src_listage->strings[i];
+        DtwPath *path = dtw.path.newPath(current);
+        char *current_name = dtw.path.get_full_name(path);
+        if(main_name != NULL){
+            if(strcmp(current_name,main_name) == 0){
+                return current;
+            }
+        }
+        if(main_name == NULL){
+            if(strcmp(current_name,DEFAULT_MAIN_C_NAME) == 0){
+                return current;
+            }
+            if(strcmp(current_name,DEFAULT_MAIN_CPP_NAME) == 0){
+                return current;
+            }
+        }
+    }
+    return NULL;
+}
+void generate_main(
+    DtwStringArray *src_listage,
+    const char *import_dir,
+    TagList *itens,
+    char *main_name,
+    const char *main_path
+
+){
+    const char *found_main_path = main_path;
+    if(main_path == NULL){
+        found_main_path = get_main_path(src_listage,itens,main_name);
+    }
+
+    if(found_main_path == NULL){
+        return;
+    }
+
+    Tag *last_tag = itens->tags[itens->size - 1];
+    char *prev = last_tag->name;
+    CTextStack *module_path = stack.newStack_string_empty();
+    stack.format(module_path,"%s/%s.%s.h",import_dir,IMPORT_NAME,prev);
+    replace_import_file(module_path->rendered_text,found_main_path);
+
+}
+
+void generate_code(
+    const char *src,
+    const char *import_dir,
+    const char *project_short_cut,
+    DtwStringArray * tags,
+    bool implement_main,
+    char *main_name,
+    const char *main_path
+    ){
 
     dtw.remove_any(import_dir);
 
@@ -29,5 +83,11 @@ void generate_code(const char *src,const char *import_dir,const char *project_sh
     }
 
     TagList_implement(itens,import_dir,project_short_cut);
+
+    if(implement_main){
+       generate_main(src_listage,import_dir,itens,main_name,main_path);
+    }
+
+
     TagList_free(itens);
 }
