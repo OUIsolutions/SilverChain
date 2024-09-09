@@ -7,8 +7,8 @@ double get_tag_priority(DtwStringArray *tags,const char *name);
 
 int count_path_levels(const char *path);
 
+
 CTextStack * make_relative_path(
     const char *current_file,
-    const char *dest_dir,
     const char *dest_file
 );

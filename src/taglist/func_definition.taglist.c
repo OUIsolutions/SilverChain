@@ -43,7 +43,7 @@ int TagList_ordanate_tag_by_priority(const void *tag1,const void *tag2){
     //ordenate by alphabet
     return strcmp(t1->name,t2->name);
 }
-void TagList_implement(TagList *self,const char *point,const char *project_short_cut,const char *src){
+void TagList_implement(TagList *self,const char *point,const char *project_short_cut){
 
     qsort(self->tags, self->size, sizeof(Tag*), TagList_ordanate_tag_by_priority);
 
@@ -54,7 +54,7 @@ void TagList_implement(TagList *self,const char *point,const char *project_short
             prev = self->tags[i-1]->name;
         }
 
-        Tag_implement(current,point,project_short_cut,prev,src);
+        Tag_implement(current,point,project_short_cut,prev);
     }
 }
 

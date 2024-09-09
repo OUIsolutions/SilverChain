@@ -29,38 +29,8 @@ int count_path_levels(const char *path){
     return count;
 }
 
+
 CTextStack * make_relative_path(
-    const char *current_file,
-    const char *dest_dir,
-    const char *dest_file
-){
-
-
-    int total_levels = count_path_levels(current_file);
-    bool is_in_dest_dir = dtw_starts_with(current_file,dest_dir);
-    if(is_in_dest_dir){
-        total_levels -= 1;
-    }
-    CTextStack *final_path = stack.newStack_string_empty();
-    for(int i = 0; i < total_levels; i++){
-        stack.text(final_path,"../");
-    }
-    if(is_in_dest_dir){
-        CTextStack *formmated_dest = stack.newStack_string(dest_file);
-        stack.self_pop(formmated_dest,0,strlen(dest_dir));
-        stack.text(final_path,formmated_dest->rendered_text);
-        stack.free(formmated_dest);
-    }
-    
-    if(!is_in_dest_dir){
-        stack.text(final_path,dest_file);
-    }
-    return final_path;
-
-
-}
-
-CTextStack * make_relative_path2(
     const char *current_file,
     const char *dest_file
 ){
