@@ -77,15 +77,17 @@ CTextStack * make_relative_path2(
         lower_size = formmated_current_path->size;
     }
     
-    int count_to_substract = 0;
+    int count_to_substract = 1;
     while (count_to_substract < lower_size){
-        if(formmated_current_path->rendered_text[count_to_substract] 
-        != formmated_dest_path->rendered_text[count_to_substract]){
+        if(formmated_current_path->rendered_text[count_to_substract] != formmated_dest_path->rendered_text[count_to_substract]){
+            
+            if(formmated_current_path->rendered_text[count_to_substract-1] != '/' || formmated_dest_path->rendered_text[count_to_substract-1] != '/'){
+                count_to_substract =0;
+            }
             break;
         }
         count_to_substract+=1;
     }
-    
 
     if(count_to_substract > 0){ 
         stack.self_pop(formmated_current_path,0,count_to_substract-1);
