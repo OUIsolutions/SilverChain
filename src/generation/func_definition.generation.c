@@ -59,6 +59,7 @@ void generate_main(
     UniversalGarbage_add(garbage,stack.free,module_path);
     stack.format(module_path,"%s/%s.%s.h",import_dir,IMPORT_NAME,prev);
     replace_import_file(found_main_path,module_path->rendered_text);
+    UniversalGarbage_free(garbage);
 
 }
 
