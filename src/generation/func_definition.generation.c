@@ -71,7 +71,6 @@ void generate_code(
     char *main_name,
     const char *main_path
     ){
-
     dtw.remove_any(import_dir);
     UniversalGarbage *garbage = newUniversalGarbage();
     DtwStringArray *src_listage = dtw.list_files_recursively(src,true);

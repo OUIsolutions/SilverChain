@@ -48,6 +48,7 @@ int main(int argc,char *argv[]){
     }
     if(!imports_flag->exist){
         imports  = dtw.concat_path(src,IMPORT_NAME);
+        UniversalGarbage_add_simple(garbage,imports);
     }
 
     CliFlag *tag_flags = cli.entry.get_flag(entry,TAG_FLAG,CLI_NOT_CASE_SENSITIVE);
