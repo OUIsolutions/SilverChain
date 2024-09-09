@@ -7,7 +7,7 @@ SilverChain is a unified import model for C, it allows you to import modules and
 ## Build
 if you want to build the project you need to have a C compiler,clonate the repository and run the following command:
 ```bash
-gcc src/main.c -Wall -pedantic -o silverchain.out
+gcc src/main.c  -o silverchain.out
 ```
 
 ## PreCompiled Version
