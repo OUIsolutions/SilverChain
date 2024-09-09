@@ -1,7 +1,5 @@
-#include "imports.type1.h"
-
-
-#ifndef SILVER_CHAIN_GLOBALS
-#define SILVER_CHAIN_GLOBALS
+#include "imports.typesB.h"
+#ifndef silverchain_globals
+#define silverchain_globals
 #include "../globals.namespace.c"
 #endif

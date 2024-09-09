@@ -1,10 +1,5 @@
 #include "imports.dependencies.h"
-
-#ifndef SILVER_CHAIN_TYPE
-#define SILVER_CHAIN_TYPE
-
+#ifndef silverchain_types
+#define silverchain_types
 #include "../tag/types.tag.h"
-
-
-
 #endif

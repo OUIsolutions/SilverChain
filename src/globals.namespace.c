@@ -1,6 +1,10 @@
 
-#include "dependencies/CTextEngine.h"
-#include "imports/imports.type1.h"
+//silver_chain_scope_start
+//mannaged by silver chain
+#include "imports/imports.typesB.h"
+//silver_chain_scope_end
+
+
 
 DtwNamespace dtw;
 CTextStackModule stack;

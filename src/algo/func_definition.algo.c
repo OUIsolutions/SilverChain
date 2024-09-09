@@ -1,4 +1,8 @@
+
+//silver_chain_scope_start
+//mannaged by silver chain
 #include "../imports/imports.func_declaration.h"
+//silver_chain_scope_end
 
 
 
@@ -43,14 +47,14 @@ CTextStack * make_relative_path(
     int lower_size = 0;
     if(formmated_current_path->size > formmated_dest_path->size){
         lower_size = formmated_dest_path->size;
-    }else{  
+    }else{
         lower_size = formmated_current_path->size;
     }
-    
+
     int count_to_substract = 1;
     while (count_to_substract < lower_size){
         if(formmated_current_path->rendered_text[count_to_substract] != formmated_dest_path->rendered_text[count_to_substract]){
-            
+
             if(formmated_current_path->rendered_text[count_to_substract-1] != '/' || formmated_dest_path->rendered_text[count_to_substract-1] != '/'){
                 count_to_substract =0;
             }
@@ -59,7 +63,7 @@ CTextStack * make_relative_path(
         count_to_substract+=1;
     }
 
-    if(count_to_substract > 0){ 
+    if(count_to_substract > 0){
         stack.self_pop(formmated_current_path,0,count_to_substract-1);
         stack.self_pop(formmated_dest_path,0,count_to_substract-1);
     }
@@ -74,9 +78,9 @@ CTextStack * make_relative_path(
     //printf("formmated =%s\n",formmated_dest_path->rendered_text);
 
     return final_path;
-  
-    
- 
+
+
+
 
 
 
