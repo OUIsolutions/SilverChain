@@ -21,15 +21,19 @@ int  get_tag_index(DtwStringArray *tags,const char *name){
 
 
 int count_path_levels(const char *path){
+    UniversalGarbage *garbage = newUniversalGarbage();
+
     CTextStack *path_stack = stack.newStack_string(path);
-    stack.replace(path_stack,"/","");
+    UniversalGarbage_add(garbage,stack.free,path_stack);
+    stack.self_replace(path_stack,"//","/");
+
     int count = 0;
     for(int i = 0; i < path_stack->size; i++){
         if(path_stack->rendered_text[i] == '/'){
             count++;
         }
     }
-    stack.free(path_stack);
+    UniversalGarbage_free(garbage);
     return count;
 }
 
@@ -39,9 +43,13 @@ CTextStack * make_relative_path(
     const char *dest_file
 ){
 
+    UniversalGarbage *garbage = newUniversalGarbage();
     CTextStack *formmated_current_path = stack.newStack_string(current_file);
+    UniversalGarbage_add(garbage,stack.free,formmated_current_path);
+
     stack.self_replace(formmated_current_path,"//","/");
     CTextStack *formmated_dest_path = stack.newStack_string(dest_file);
+    UniversalGarbage_add(garbage,stack.free,formmated_dest_path);
     stack.self_replace(formmated_dest_path,"//","/");
 
     int lower_size = 0;
@@ -77,6 +85,7 @@ CTextStack * make_relative_path(
     //printf("current = %s\n",formmated_current_path->rendered_text);
     //printf("formmated =%s\n",formmated_dest_path->rendered_text);
 
+    UniversalGarbage_free(garbage);
     return final_path;
 
 
