@@ -6,8 +6,8 @@ SilverChain is a unified import model for C, it allows you to import modules and
 
 ## How to use
 
-firts download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.01/silverchain.out) or
-[silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.01/silverchain.exe)
+firts download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.out) or
+[silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.exe)
 file and put it in your project folder, then run the following command:
 
 ```bash
