@@ -2,9 +2,8 @@
 ## SilverChain a Universal Import Model for C
 
 SilverChain is a unified import model for C, it allows you to import modules and use their functions and variables in a more organized and efficient way.
-<video width="320" height="240" controls>
-  <source src="https://www.youtube.com/watch?v=mU4QbZATKfo" type="video/mp4">
-</video>
+
+[video explanation](https://www.youtube.com/watch?v=mU4QbZATKfo)
 
 ## Build
 if you want to build the project you need to have a C compiler,clonate the repository and run the following command:
