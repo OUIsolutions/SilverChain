@@ -5,25 +5,34 @@
 //silver_chain_scope_end
 
 char *get_main_path(DtwStringArray *src_listage,char *main_name){
-
+    UniversalGarbage *garbage = newUniversalGarbage();
+     DtwPath *path = NULL;
+     UniversalGarbage_add(garbage,dtw.path.free,path);
     for(int i = 0; i < src_listage->size;i++){
         char *current = src_listage->strings[i];
-        DtwPath *path = dtw.path.newPath(current);
+        
+        path = dtw.path.newPath(current);
+        UniversalGarbage_resset(garbage,path);
+        
         char *current_name = dtw.path.get_full_name(path);
         if(main_name != NULL){
             if(strcmp(current_name,main_name) == 0){
+                UniversalGarbage_free(garbage);
                 return current;
             }
         }
         if(main_name == NULL){
             if(strcmp(current_name,DEFAULT_MAIN_C_NAME) == 0){
+                UniversalGarbage_free(garbage);
                 return current;
             }
             if(strcmp(current_name,DEFAULT_MAIN_CPP_NAME) == 0){
+                UniversalGarbage_free(garbage);
                 return current;
             }
         }
     }
+    UniversalGarbage_free(garbage);
     return NULL;
 }
 void generate_main(
@@ -43,12 +52,14 @@ void generate_main(
         return;
     }
 
+    UniversalGarbage *garbage = newUniversalGarbage();
     Tag *last_tag = itens->tags[itens->size - 1];
     char *prev = last_tag->name;
     CTextStack *module_path = stack.newStack_string_empty();
+    UniversalGarbage_add(garbage,stack.free,module_path);
     stack.format(module_path,"%s/%s.%s.h",import_dir,IMPORT_NAME,prev);
     replace_import_file(found_main_path,module_path->rendered_text);
-
+    UniversalGarbage_free(garbage);
 }
 
 void generate_code(
