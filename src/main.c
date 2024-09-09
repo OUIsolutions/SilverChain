@@ -61,8 +61,23 @@ int main(int argc,char *argv[]){
     if(project_short_cut_flag->exist){
         project_short_cut = cli.flag.get_str(project_short_cut_flag,0,CLI_CASE_SENSITIVE);
     }
+    bool implement_main = true;
+    char *main_name = NULL;
+    char *main_path = NULL;
 
+    CliFlag *implement_main_flag = cli.entry.get_flag(entry,IMPLEMENT_MAIN_FLAG,CLI_NOT_CASE_SENSITIVE);
+    if(implement_main_flag->exist){
+        implement_main = cli.flag.get_bool(implement_main_flag,0);
+    }
+    CliFlag *main_name_flag = cli.entry.get_flag(entry,MAIN_NAME_FLAG,CLI_NOT_CASE_SENSITIVE);
+    if(main_name_flag->exist){
+        main_name = cli.flag.get_str(main_name_flag,0,CLI_CASE_SENSITIVE);
+    }
+    CliFlag *main_path_flag = cli.entry.get_flag(entry,MAIN_PATH_FLAG,CLI_NOT_CASE_SENSITIVE);
+    if(main_path_flag->exist){
+        main_path = cli.flag.get_str(main_path_flag,0,CLI_CASE_SENSITIVE);
+    }
 
-    generate_code(src,imports,project_short_cut,tags,true,NULL,NULL);
+    generate_code(src,imports,project_short_cut,tags,implement_main,main_name,main_path);
 
 }

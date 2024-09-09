@@ -8,3 +8,6 @@
 #define IMPORT_FLAG "importdir"
 #define TAG_FLAG "tags"
 #define PROJECT_SHORT_CUT_FLAG "project_short_cut"
+#define IMPLEMENT_MAIN_FLAG "implement_main"
+#define MAIN_NAME_FLAG "main_name"
+#define MAIN_PATH_FLAG "main_path"
