@@ -23,14 +23,13 @@
 #define MAIN_PATH_DESCRIPTION "The path of the main function (default: not set)"
 #define HELP_DESCRIPTION "Show the help message"
 
-#define HELP_MESSAGE "Usage: silverchain [options]\nOptions:"\
-"\n  -h, --help\t\t\t"HELP_DESCRIPTION\
-"\n  -s, --src\t\t\t"SRC_DESCRIPTION\
-"\n  -i, --importdir\t\t"IMPORT_DESCRIPTION\
-"\n  -t, --tags\t\t\t"TAG_DESCRIPTION\
-"\n  -p, --project_short_cut\t"PROJECT_SHORT_CUT_DESCRIPTION\
-"\n  -m, --implement_main\t\t"IMPLEMENT_MAIN_DESCRIPTION\
-"\n  -n, --main_name\t\t"MAIN_NAME_DESCRIPTION\
-"\n  -p, --main_path\t\t"MAIN_PATH_DESCRIPTION\
+#define HELP_MESSAGE "Usage: silverchain [options]\nOptions:" \
+BLUE"\n  -h, --help\t\t\t" GREEN HELP_DESCRIPTION RESET  \
+BLUE"\n  -s, --src\t\t\t" GREEN SRC_DESCRIPTION RESET \
+BLUE"\n  -i, --importdir\t\t" GREEN IMPORT_DESCRIPTION RESET \
+BLUE"\n  -t, --tags\t\t\t" GREEN TAG_DESCRIPTION RESET \
+BLUE"\n  -p, --project_short_cut\t" GREEN PROJECT_SHORT_CUT_DESCRIPTION RESET \
+BLUE"\n  -m, --implement_main\t\t" GREEN IMPLEMENT_MAIN_DESCRIPTION RESET \
+BLUE"\n  -n, --main_name\t\t" GREEN MAIN_NAME_DESCRIPTION RESET \
+BLUE"\n  -p, --main_path\t\t" GREEN MAIN_PATH_DESCRIPTION RESET \
 "\n"
-
