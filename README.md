@@ -13,7 +13,7 @@ gcc src/main.c -Wall -pedantic -o silverchain.out
 ## PreCompiled Version
 download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.out) or
 [silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.exe)
-file and put it in your project folde.a
+file and put it in your project folder
 
 
 ##  Usage
