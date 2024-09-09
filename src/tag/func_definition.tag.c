@@ -47,7 +47,9 @@ void Tag_replace_import_in_files(
     const char *module_dir,
     const char *prev
 ){
-
+    if(prev == NULL){
+        return;
+    }
     CTextStack *module_path = stack.newStack_string_empty();
     stack.format(module_path,"%s/imports.%s.h",module_dir,prev);
     for(int i = 0; i < self->itens->size;i++){
