@@ -9,3 +9,4 @@
 #define SRC_FLAG_NOT_PROVIDED "src flag not provided"
 #define TAG_FLAG_NOT_PROVIDED "tag flag not provided"
 #define SRC_ITS_NOT_A_DIR "src flag its not a dir"
+#define AT_LEAST_ONE_TAG_ERROR "at least one tag must be provided"

@@ -55,6 +55,12 @@ int main(int argc,char *argv[]){
         return 1;
     }
 
+    if(tag_flags->size == 0){
+        printf(AT_LEAST_ONE_TAG_ERROR);
+        cli.entry.free(entry);
+        return 1;
+    }
+
 
     DtwStringArray *tags = newDtwStringArray();
 
