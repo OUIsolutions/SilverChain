@@ -65,7 +65,7 @@ void TagList_implement(TagList *self,const char *point,const char *project_short
 void TagList_free(TagList *self){
     for(int i = 0; i < self->size;i++){
         Tag *current = self->tags[i];
-        free(current);
+        Tag_free(current);
     }
     free(self->tags);
     free(self);
