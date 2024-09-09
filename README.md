@@ -4,27 +4,24 @@
 SilverChain is a unified import model for C, it allows you to import modules and use their functions and variables in a more organized and efficient way.
 
 
-## How to use
 ## Build
 if you want to build the project you need to have a C compiler,clonate the repository and run the following command:
 ```bash
 gcc src/main.c -Wall -pedantic -o silverchain.out
 ```
 
-## PreCompiled Version 
-
+## PreCompiled Version
 download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.out) or
 [silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.exe)
 file and put it in your project folder, then run the following command:
 
 
+##  Usage
+this will generate a folder called "imports" with all the imports and their dependencies, and a main.c file with the main function and the imports.
+
 ```bash
 ./silverchain.out -src <src_folder> -tags <tag1> <tag2> <tag3> ... <tagN>
 ```
-
-
-this will generate a folder called "imports" with all the imports and their dependencies, and a main.c file with the main function and the imports.
-
 
 ## Flags
 
