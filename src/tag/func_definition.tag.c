@@ -44,13 +44,12 @@ void Tag_create_module_file(
 
 void Tag_replace_import_in_files(
     Tag *self,
-    const char *import_module_file
+    const char *prev_module_path
 ){
     for(int i = 0; i < self->itens->size;i++){
 
         char *current_file_path = self->itens->strings[i];
-        char *last_file_path = self->itens->strings[i-1];
-        CTextStack *relative_path = make_relative_path(last_file_path,import_module_file);
+       CTextStack *relative_path = make_relative_path(current_file_path,prev_module_path);
         CTextStack *text_to_insert = stack.newStack_string("\n//silver_chain_scope_start\n");
         stack.text(text_to_insert,"//mannaged by silver chain\n");
         stack.format(text_to_insert,"#include \"%t\"\n",relative_path);
@@ -95,7 +94,7 @@ void Tag_implement(
     stack.format(import_module_file_path,"%s/imports.%s.h",module_dir,self->name);
 
     Tag_create_module_file(self,import_module_file_path,prev,project_short_cut);
-    Tag_replace_import_in_files(self,import_module_file_path->rendered_text);
+    Tag_replace_import_in_files(self,prev);
     stack.free(import_module_file_path);
 }
 

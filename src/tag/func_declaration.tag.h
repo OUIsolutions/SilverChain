@@ -17,7 +17,7 @@ void Tag_create_module_file(
 
 void Tag_replace_import_in_files(
     Tag *self,
-    const char *import_module_file
+    const char *prev_module_path
 );
 
 void Tag_implement(
