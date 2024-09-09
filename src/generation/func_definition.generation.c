@@ -62,7 +62,7 @@ void generate_code(
     ){
 
     dtw.remove_any(import_dir);
-
+    UniversalGarbage *garbage = newUniversalGarbage();
     DtwStringArray *src_listage = dtw.list_files_recursively(src,true);
     TagList *itens = newTagList();
     for(int i = 0; i <src_listage->size;i++){

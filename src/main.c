@@ -11,12 +11,15 @@ int main(int argc,char *argv[]){
     dtw = newDtwNamespace();
     stack = newCTextStackModule();
     cli = newCliNamespace();
+    UniversalGarbage *garbage = newUniversalGarbage();
+
     CliEntry *entry = newCliEntry(argc,argv);
+    UniversalGarbage_add(garbage,cli.entry.free,entry);
 
     CliFlag *help_flag = cli.entry.get_flag(entry,HELP_FLAG,CLI_NOT_CASE_SENSITIVE);
     if(help_flag->exist){
         printf(HELP_MESSAGE);
-        cli.entry.free(entry);
+        UniversalGarbage_free(garbage);
         return 1;
     }
 
@@ -25,14 +28,14 @@ int main(int argc,char *argv[]){
     //verify if exist
     if(src_flag->exist == false){
            printf(SRC_FLAG_NOT_PROVIDED);
-           cli.entry.free(entry);
+           UniversalGarbage_free(garbage);
            return 1;
     }
 
     char *src = cli.flag.get_str(src_flag,0,CLI_CASE_SENSITIVE);
     if(dtw.entity_type(src) != DTW_FOLDER_TYPE){
         printf(SRC_ITS_NOT_A_DIR);
-        cli.entry.free(entry);
+        UniversalGarbage_free(garbage);
         return 1;
     }
 
@@ -51,18 +54,19 @@ int main(int argc,char *argv[]){
 
     if(!tag_flags->exist){
         printf(TAG_FLAG_NOT_PROVIDED);
-        cli.entry.free(entry);
+        UniversalGarbage_free(garbage);
         return 1;
     }
 
     if(tag_flags->size == 0){
         printf(AT_LEAST_ONE_TAG_ERROR);
-        cli.entry.free(entry);
+        UniversalGarbage_free(garbage);
         return 1;
     }
 
 
     DtwStringArray *tags = newDtwStringArray();
+    UniversalGarbage_add(garbage,dtw.string_array.free,tags);
 
     for(int i = 0; i < tag_flags->size;i++){
         char *tag = cli.flag.get_str(tag_flags,i,CLI_CASE_SENSITIVE);
@@ -92,5 +96,6 @@ int main(int argc,char *argv[]){
     }
 
     generate_code(src,imports,project_short_cut,tags,implement_main,main_name,main_path);
+    UniversalGarbage_free(garbage);
 
 }
