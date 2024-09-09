@@ -55,8 +55,10 @@ void generate_main(
     UniversalGarbage *garbage = newUniversalGarbage();
     Tag *last_tag = itens->tags[itens->size - 1];
     char *prev = last_tag->name;
+    
     CTextStack *module_path = stack.newStack_string_empty();
     UniversalGarbage_add(garbage,stack.free,module_path);
+
     stack.format(module_path,"%s/%s.%s.h",import_dir,IMPORT_NAME,prev);
     replace_import_file(found_main_path,module_path->rendered_text);
     UniversalGarbage_free(garbage);
@@ -93,7 +95,7 @@ void generate_code(
         UniversalGarbage_resset(garbage,path);
 
         char *name = dtw.path.get_name(path);
-        CTextStack *name_stack = stack.newStack_string(name);
+        name_stack = stack.newStack_string(name);
         UniversalGarbage_resset(garbage,name_stack);
 
         int first_dot = stack.index_of_char(name_stack,'.');
