@@ -1,4 +1,4 @@
-
+a
 //silver_chain_scope_start
 //mannaged by silver chain
 #include "../imports/imports.func_declaration.h"
@@ -81,7 +81,7 @@ void Tag_replace_import_in_files(
         int end_scope_index = stack.index_of(file_content_stack,SILVER_CHAIN_END_SCOPE);
         if(end_scope_index == -1){
             printf(FILE_NOT_PROVIDED_ERROR,current_file_path);
-            exit(1);
+           continue;
         }
         //replace the content
         stack.self_pop(file_content_stack,start_scope_index,end_scope_index+end_scope_size-1);
