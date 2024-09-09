@@ -47,7 +47,7 @@ void generate_main(
     char *prev = last_tag->name;
     CTextStack *module_path = stack.newStack_string_empty();
     stack.format(module_path,"%s/%s.%s.h",import_dir,IMPORT_NAME,prev);
-    replace_import_file(module_path->rendered_text,found_main_path);
+    replace_import_file(found_main_path,module_path->rendered_text);
 
 }
 
