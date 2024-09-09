@@ -3,7 +3,7 @@
 
 SilverChain is a unified import model for C, it allows you to import modules and use their functions and variables in a more organized and efficient way.
 
-![ ](https://www.youtube.com/watch?v=mU4QbZATKfo)
+![](https://www.youtube.com/watch?v=mU4QbZATKfo)
 
 ## Build
 if you want to build the project you need to have a C compiler,clonate the repository and run the following command:
