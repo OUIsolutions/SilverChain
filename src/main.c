@@ -13,6 +13,13 @@ int main(int argc,char *argv[]){
     cli = newCliNamespace();
     CliEntry *entry = newCliEntry(argc,argv);
 
+    CliFlag *help_flag = cli.entry.get_flag(entry,HELP_FLAG,CLI_NOT_CASE_SENSITIVE);
+    if(help_flag->exist){
+        printf(HELP_MESSAGE);
+        cli.entry.free(entry);
+        return 1;
+    }
+
     CliFlag *src_flag = cli.entry.get_flag(entry,SRC_FLAG,CLI_NOT_CASE_SENSITIVE);
 
     //verify if exist

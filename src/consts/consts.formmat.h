@@ -13,3 +13,4 @@
 #define PROJECT_SHORT_CUT_DEFAULT "silverchain"
 #define DEFAULT_MAIN_C_NAME "main.c"
 #define DEFAULT_MAIN_CPP_NAME "main.cpp"
+
