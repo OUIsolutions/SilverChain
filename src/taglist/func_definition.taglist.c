@@ -48,6 +48,7 @@ int TagList_ordanate_tag_by_priority(const void *tag1,const void *tag2){
 }
 void TagList_implement(TagList *self,const char *point,const char *project_short_cut){
 
+
     qsort(self->tags, self->size, sizeof(Tag*), TagList_ordanate_tag_by_priority);
 
     for(int i = 0; i < self->size;i++){
