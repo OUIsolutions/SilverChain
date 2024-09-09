@@ -64,13 +64,26 @@ void generate_code(
     dtw.remove_any(import_dir);
     UniversalGarbage *garbage = newUniversalGarbage();
     DtwStringArray *src_listage = dtw.list_files_recursively(src,true);
+    UniversalGarbage_add(garbage,dtw.string_array.free,src_listage);
+
+    DtwPath *path =NULL;
+    UniversalGarbage_add(garbage,dtw.path.free,path);
+    
+    CTextStack *name_stack = NULL;
+    UniversalGarbage_add(garbage,stack.free,name_stack);
+    
     TagList *itens = newTagList();
+    UniversalGarbage_add(garbage,TagList_free,itens);
+
     for(int i = 0; i <src_listage->size;i++){
         char *current = src_listage->strings[i];
-        DtwPath *path = dtw.path.newPath(current);
+        path = dtw.path.newPath(current);
+        UniversalGarbage_resset(garbage,path);
 
         char *name = dtw.path.get_name(path);
         CTextStack *name_stack = stack.newStack_string(name);
+        UniversalGarbage_resset(garbage,name_stack);
+
         int first_dot = stack.index_of_char(name_stack,'.');
         stack.self_substr(name_stack,0,first_dot);
 
@@ -78,8 +91,7 @@ void generate_code(
         if(tag_index != -1){
             TagList_add_item(itens,name_stack->rendered_text,current,tag_index);
         }
-        dtw.path.free(path);
-        stack.free(name_stack);
+        
     }
 
     TagList_implement(itens,import_dir,project_short_cut);
@@ -87,6 +99,5 @@ void generate_code(
        generate_main(src_listage,import_dir,itens,main_name,main_path);
     }
 
-
-    TagList_free(itens);
+    UniversalGarbage_free(garbage);
 }
