@@ -4,4 +4,5 @@
 #include "../consts/consts.errors.h"
 #include "../consts/consts.flags.h"
 #include "../consts/consts.formmat.h"
+#include "../consts/consts.colors.h"
 #endif
