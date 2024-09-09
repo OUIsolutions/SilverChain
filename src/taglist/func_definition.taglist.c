@@ -6,7 +6,7 @@
 
 
 TagList *newTagList(){
-    TagList *self = malloc(sizeof(TagList));
+    TagList *self = (TagList*)malloc(sizeof(TagList));
     *self = (TagList){0};
     self->tags = (Tag**)malloc(0);
     return self;

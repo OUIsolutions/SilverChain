@@ -6,10 +6,17 @@ SilverChain is a unified import model for C, it allows you to import modules and
 
 ## How to use
 
-firts download the silverchain.out or silverchain.exe file and put it in your project folder, then run the following command:
+firts download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.01/silverchain.out) or
+[silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.01/silverchain.exe)
+file and put it in your project folder, then run the following command:
 
 ```bash
 ./silverchain.out -src <src_folder> -tags <tag1> <tag2> <tag3> ... <tagN>
+```
+## Build
+
+```bash
+gcc src/main.c -Wall -pedantic -o silverchain.out
 ```
 
 this will generate a folder called "imports" with all the imports and their dependencies, and a main.c file with the main function and the imports.
@@ -28,7 +35,7 @@ this will generate a folder called "imports" with all the imports and their depe
 | -p, --main_path | The path of the main function | undefined |
 | -h, --help | Shows the help message | - |
 
-## How it works 
+## How it works
 basicly it makes a imports dir , giving visualization of the project modules tag after tag, lets pick the self project build comand:
 
 
@@ -44,5 +51,3 @@ each tag can visualize the all the ancestors tags, for example:
 ```
 
 in this case the "func_declaration" and "func_definition" tags will see the "dependencies" and "consts" .
-
-

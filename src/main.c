@@ -74,7 +74,7 @@ int main(int argc,char *argv[]){
         dtw.string_array.append(tags,tag);
     }
     CliFlag *project_short_cut_flag = cli.entry.get_flag(entry,PROJECT_SHORT_CUT_FLAG,CLI_NOT_CASE_SENSITIVE);
-    char *project_short_cut = PROJECT_SHORT_CUT_DEFAULT;
+    const char *project_short_cut = PROJECT_SHORT_CUT_DEFAULT;
 
     if(project_short_cut_flag->exist){
         project_short_cut = cli.flag.get_str(project_short_cut_flag,0,CLI_CASE_SENSITIVE);
