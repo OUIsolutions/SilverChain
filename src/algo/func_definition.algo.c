@@ -59,3 +59,53 @@ CTextStack * make_relative_path(
 
 
 }
+
+CTextStack * make_relative_path2(
+    const char *current_file,
+    const char *dest_file
+){
+
+    CTextStack *formmated_current_path = stack.newStack_string(current_file);
+    stack.self_replace(formmated_current_path,"//","/");
+    CTextStack *formmated_dest_path = stack.newStack_string(dest_file);
+    stack.self_replace(formmated_dest_path,"//","/");
+
+    int lower_size = 0;
+    if(formmated_current_path->size > formmated_dest_path->size){
+        lower_size = formmated_dest_path->size;
+    }else{  
+        lower_size = formmated_current_path->size;
+    }
+    
+    int count_to_substract = 0;
+    while (count_to_substract < lower_size){
+        if(formmated_current_path->rendered_text[count_to_substract] 
+        != formmated_dest_path->rendered_text[count_to_substract]){
+            break;
+        }
+        count_to_substract+=1;
+    }
+    
+
+    if(count_to_substract > 0){ 
+        stack.self_pop(formmated_current_path,0,count_to_substract-1);
+        stack.self_pop(formmated_dest_path,0,count_to_substract-1);
+    }
+    int dirs_to_add = count_path_levels(formmated_current_path->rendered_text);
+    CTextStack *final_path = stack.newStack_string_empty();
+
+    for(int i = 0; i < dirs_to_add; i++){
+        stack.text(final_path,"../");
+    }
+    stack.text(final_path,formmated_dest_path->rendered_text);
+    //printf("current = %s\n",formmated_current_path->rendered_text);
+    //printf("formmated =%s\n",formmated_dest_path->rendered_text);
+
+    return final_path;
+  
+    
+ 
+
+
+
+}
