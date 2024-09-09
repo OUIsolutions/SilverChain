@@ -4,9 +4,9 @@
 #include "../imports/imports.func_declaration.h"
 //silver_chain_scope_end
 
-char *get_main_path(DtwStringArray *src_listage,TagList *itens,char *main_name){
+char *get_main_path(DtwStringArray *src_listage,char *main_name){
 
-    for(int i = 0; i < itens->size;i++){
+    for(int i = 0; i < src_listage->size;i++){
         char *current = src_listage->strings[i];
         DtwPath *path = dtw.path.newPath(current);
         char *current_name = dtw.path.get_full_name(path);
@@ -36,7 +36,7 @@ void generate_main(
 ){
     const char *found_main_path = main_path;
     if(main_path == NULL){
-        found_main_path = get_main_path(src_listage,itens,main_name);
+        found_main_path = get_main_path(src_listage,main_name);
     }
 
     if(found_main_path == NULL){
@@ -83,7 +83,6 @@ void generate_code(
     }
 
     TagList_implement(itens,import_dir,project_short_cut);
-
     if(implement_main){
        generate_main(src_listage,import_dir,itens,main_name,main_path);
     }

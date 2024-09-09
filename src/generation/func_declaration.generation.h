@@ -5,7 +5,7 @@
 //silver_chain_scope_end
 
 
-char *get_main_path(DtwStringArray *src_listage,TagList *itens,char *main_name);
+char *get_main_path(DtwStringArray *src_listage,char *main_name);
 
 void generate_main(
     DtwStringArray *src_listage,
