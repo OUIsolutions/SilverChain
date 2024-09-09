@@ -46,7 +46,7 @@ void Tag_replace_import_in_files(
     Tag *self,
     const char *import_module_file
 ){
-    for(int i = 1; i < self->itens->size;i++){
+    for(int i = 0; i < self->itens->size;i++){
 
         char *current_file_path = self->itens->strings[i];
         char *last_file_path = self->itens->strings[i-1];
