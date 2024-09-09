@@ -8,6 +8,7 @@ int main(){
 
     DtwStringArray *tags = newDtwStringArray();
     dtw.string_array.append(tags,"dependencies");
+    dtw.string_array.append(tags,"consts");
     dtw.string_array.append(tags,"types");
     dtw.string_array.append(tags,"globals");
     dtw.string_array.append(tags,"func_declaration");
