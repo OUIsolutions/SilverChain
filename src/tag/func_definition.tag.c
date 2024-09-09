@@ -44,12 +44,16 @@ void Tag_create_module_file(
 
 void Tag_replace_import_in_files(
     Tag *self,
-    const char *prev_module_path
+    const char *module_dir,
+    const char *prev
 ){
+
+    CTextStack *module_path = stack.newStack_string_empty();
+    stack.format(module_path,"%s/imports.%s.h",module_dir,prev);
     for(int i = 0; i < self->itens->size;i++){
 
         char *current_file_path = self->itens->strings[i];
-       CTextStack *relative_path = make_relative_path(current_file_path,prev_module_path);
+       CTextStack *relative_path = make_relative_path(current_file_path,module_path->rendered_text);
         CTextStack *text_to_insert = stack.newStack_string("\n//silver_chain_scope_start\n");
         stack.text(text_to_insert,"//mannaged by silver chain\n");
         stack.format(text_to_insert,"#include \"%t\"\n",relative_path);
@@ -80,6 +84,7 @@ void Tag_replace_import_in_files(
         stack.free(file_content_stack);
         stack.free(text_to_insert);
     }
+    stack.free(module_path);
 }
 
 
@@ -94,7 +99,7 @@ void Tag_implement(
     stack.format(import_module_file_path,"%s/imports.%s.h",module_dir,self->name);
 
     Tag_create_module_file(self,import_module_file_path,prev,project_short_cut);
-    Tag_replace_import_in_files(self,prev);
+    Tag_replace_import_in_files(self,module_dir,prev);
     stack.free(import_module_file_path);
 }
 
