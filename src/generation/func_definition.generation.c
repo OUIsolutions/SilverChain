@@ -59,7 +59,7 @@ void generate_main(
     UniversalGarbage_add(garbage,stack.free,module_path);
     stack.format(module_path,"%s/%s.%s.h",import_dir,IMPORT_NAME,prev);
     replace_import_file(found_main_path,module_path->rendered_text);
-    UniversalGarbage_free(garbage);
+
 }
 
 void generate_code(
@@ -71,6 +71,7 @@ void generate_code(
     char *main_name,
     const char *main_path
     ){
+
     dtw.remove_any(import_dir);
     UniversalGarbage *garbage = newUniversalGarbage();
     DtwStringArray *src_listage = dtw.list_files_recursively(src,true);
