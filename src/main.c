@@ -73,6 +73,12 @@ int main(int argc,char *argv[]){
         char *tag = cli.flag.get_str(tag_flags,i,CLI_CASE_SENSITIVE);
         dtw.string_array.append(tags,tag);
     }
+    if(flag_collides(tags)){
+        printf(FLAG_COLLIDES_ERROR);
+        UniversalGarbage_free(garbage);
+        return 1;
+    }
+    
     CliFlag *project_short_cut_flag = cli.entry.get_flag(entry,PROJECT_SHORT_CUT_FLAG,CLI_NOT_CASE_SENSITIVE);
     const char *project_short_cut = PROJECT_SHORT_CUT_DEFAULT;
 

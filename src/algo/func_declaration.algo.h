@@ -16,3 +16,5 @@ CTextStack * make_relative_path(
     const char *current_file,
     const char *dest_file
 );
+
+bool flag_collides(DtwStringArray *flags);
