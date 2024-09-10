@@ -64,8 +64,8 @@ echo "Instalando o projeto"
 chroot $DIR /bin/bash -c 'apt update'
 chroot $DIR /bin/bash -c 'DEBIAN_FRONTEND=noninteractive apt install -y gcc build-essential'
 #install ix86 gcc 
-chroot $DIR /bin/bash -c 'apt install -y gcc-multilib'
-
+chroot $DIR /bin/bash -c 'DEBIAN_FRONTEND=noninteractive apt install -y gcc-multilib'
+chroot $DIR /bin/bash -c 'DEBIAN_FRONTEND=noninteractive  apt install -y mingw-w64'
 
 # Após sair do chroot, desmontar os sistemas de arquivos
 echo "Desmontando sistemas de arquivos..."

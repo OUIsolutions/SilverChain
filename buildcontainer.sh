@@ -7,6 +7,13 @@ SRC="src"
 COMANDO="gcc $SRC/main.c -o silverchain.out && x86_64-w64-mingw32-gcc $SRC/main.c -o silverchain.exe"
 
 
+# Verificar se o script está sendo executado como root
+if [[ $EUID -ne 0 ]]; then
+   echo "these script must be executed as root"
+   exit 1
+fi
+
+
 #resouvendo problemas de montagem anterior
 umount "$DIR/proc"
 umount "$DIR/sys"
@@ -15,16 +22,10 @@ umount "$DIR/dev"
 umount "$DIR"
 
 
-# Verificar se o script está sendo executado como root
-if [[ $EUID -ne 0 ]]; then
-   echo "these script must be executed as root"
-   exit 1
-fi
-
 
 #da acesso a internet (nescessário se seu app vai usar internet emquanto roda)
 sudo cp -L /etc/resolv.conf ./$DIR/etc/
-sudo mkdir ./$DIR/$PROJECTS
+sudo mkdir ./$DIR/$SRC
 sudo cp -r ./$SRC ./static ./$DIR/
 
 
