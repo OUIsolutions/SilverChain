@@ -107,7 +107,7 @@ int main(int argc,char *argv[]){
     CliFlag *watch_flag = cli.entry.get_flag(entry,WATCH_FLAG,CLI_NOT_CASE_SENSITIVE);
     if(watch_flag->exist){
             CliFlag *sleep_time_flag = cli.entry.get_flag(entry,SLEEP_TIME_FLAG,CLI_NOT_CASE_SENSITIVE);
-        int sleep_time = 0;
+        int sleep_time = SLEEP_TIME_DEFAULT;
         if(sleep_time_flag->exist){
             sleep_time = cli.flag.get_long(sleep_time_flag,0);
         }
