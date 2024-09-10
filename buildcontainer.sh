@@ -4,7 +4,7 @@
 # Definir variáveis
 DIR="container"
 SRC="src"
-COMANDO="gcc $SRC/main.c -o silverchain.out && x86_64-w64-mingw32-gcc $SRC/main.c -o silverchain.exe"
+COMANDO="gcc -static $SRC/main.c -o silverchain.out && x86_64-w64-mingw32-gcc -static $SRC/main.c -o silverchain.exe"
 
 
 # Verificar se o script está sendo executado como root
@@ -25,8 +25,9 @@ umount "$DIR"
 
 #da acesso a internet (nescessário se seu app vai usar internet emquanto roda)
 sudo cp -L /etc/resolv.conf ./$DIR/etc/
+sudo rm -rf ./$DIR/$SRC
+sudo cp -r $SRC ./$DIR/
 sudo mkdir ./$DIR/$SRC
-sudo cp -r ./$SRC ./static ./$DIR/
 
 
 # Montar os sistemas de arquivos necessários para o chroot
