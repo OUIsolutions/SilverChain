@@ -144,6 +144,7 @@ void generate_code_in_watch_mode(const char *src,const char *import_dir,const ch
         dtw.hash.free(hash);
 
     }
+    
     if(first != NULL){
         free(first);
     }
