@@ -127,10 +127,12 @@ void generate_code_in_watch_mode(const char *src,const char *import_dir,const ch
             dtw.hash.free(hash);
             continue;
         }
-        
+
         if(strcmp(hash->hash,first) != 0){
             printf(REMAKING_PROJECT_MESSAGE);
             generate_code(src,import_dir,project_short_cut,tags,implement_main,main_name,main_path);
+            free(first);
+            first = strdup(hash->hash);
         }
         dtw.hash.free(hash);
 
