@@ -120,7 +120,7 @@ void generate_code(
     UniversalGarbage_free(garbage);
 }
 
-void generate_code_in_watch_mode(const char *src,const char *import_dir,const char *project_short_cut,DtwStringArray *tags,bool implement_main,char *main_name,const char *main_path){
+void generate_code_in_watch_mode(const char *src,const char *import_dir,const char *project_short_cut,DtwStringArray *tags,bool implement_main,char *main_name,const char *main_path,int sleep_time){
     char *first = NULL;
      printf(MAKING_PROJECT_MESSAGE);
     generate_code(src,import_dir,project_short_cut,tags,implement_main,main_name,main_path);
@@ -142,7 +142,9 @@ void generate_code_in_watch_mode(const char *src,const char *import_dir,const ch
             first = NULL;
         }
         dtw.hash.free(hash);
-
+        if(sleep_time > 0){
+            sleep(sleep_time);
+        }
     }
     
     if(first != NULL){

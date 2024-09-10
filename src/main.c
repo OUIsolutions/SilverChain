@@ -106,7 +106,12 @@ int main(int argc,char *argv[]){
 
     CliFlag *watch_flag = cli.entry.get_flag(entry,WATCH_FLAG,CLI_NOT_CASE_SENSITIVE);
     if(watch_flag->exist){
-        generate_code_in_watch_mode(src,imports,project_short_cut,tags,implement_main,main_name,main_path);
+            CliFlag *sleep_time_flag = cli.entry.get_flag(entry,SLEEP_TIME_FLAG,CLI_NOT_CASE_SENSITIVE);
+        int sleep_time = 0;
+        if(sleep_time_flag->exist){
+            sleep_time = cli.flag.get_long(sleep_time_flag,0);
+        }
+        generate_code_in_watch_mode(src,imports,project_short_cut,tags,implement_main,main_name,main_path,sleep_time);
     }
 
     if(!watch_flag->exist){
