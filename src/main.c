@@ -73,8 +73,10 @@ int main(int argc,char *argv[]){
         char *tag = cli.flag.get_str(tag_flags,i,CLI_CASE_SENSITIVE);
         dtw.string_array.append(tags,tag);
     }
-    if(flag_collides(tags)){
-        printf(FLAG_COLLIDES_ERROR);
+
+    FlagColision possible_colision = flag_collides(tags);
+    if(possible_colision.collides){
+        printf(FLAG_COLLIDES_ERROR,possible_colision.flag_colliding,possible_colision.flag_colliding_with);
         UniversalGarbage_free(garbage);
         return 1;
     }

@@ -95,16 +95,19 @@ CTextStack * make_relative_path(
 
 }
 
-bool flag_collides(DtwStringArray *flags){
-
+FlagColision flag_collides(DtwStringArray *flags){
+    FlagColision colision = {false,NULL,NULL};
     for(int i = 0; i < flags->size; i++){
         char *current_flag = flags->strings[i];
         for(int j = 0; j < flags->size; j++){
             char *current_flag2 = flags->strings[j];
             if(dtw_starts_with(current_flag2,current_flag)){
-                return -1;
+                colision.collides = true;
+                colision.flag_colliding = current_flag;
+                colision.flag_colliding_with = current_flag2;
+                return colision;
             }
         }
     }
-    return 0;
+    return colision;
 }
