@@ -6,7 +6,7 @@
 *.ko
 *.obj
 *.elf
-
+buld_on_container.sh
 # Linker output
 *.ilk
 *.map
