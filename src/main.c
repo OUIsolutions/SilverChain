@@ -96,7 +96,15 @@ int main(int argc,char *argv[]){
         main_path = cli.flag.get_str(main_path_flag,0,CLI_CASE_SENSITIVE);
     }
 
-    generate_code(src,imports,project_short_cut,tags,implement_main,main_name,main_path);
+    CliFlag *watch_flag = cli.entry.get_flag(entry,WATCH_FLAG,CLI_NOT_CASE_SENSITIVE);
+    if(watch_flag->exist){
+        generate_code_in_watch_mode(src,imports,project_short_cut,tags,implement_main,main_name,main_path);
+    }
+
+    if(!watch_flag->exist){
+        generate_code(src,imports,project_short_cut,tags,implement_main,main_name,main_path);
+    }
+
     UniversalGarbage_free(garbage);
 
 }

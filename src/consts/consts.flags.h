@@ -11,7 +11,7 @@
 #define IMPLEMENT_MAIN_FLAG "m | implement_main"
 #define MAIN_NAME_FLAG "n | main_name"
 #define MAIN_PATH_FLAG "p | main_path"
-
+#define WATCH_FLAG "w | watch"
 #define HELP_FLAG "h | help"
 
 #define SRC_DESCRIPTION "The folder of the project(required)"
@@ -22,7 +22,7 @@
 #define MAIN_NAME_DESCRIPTION "The name of the main function (default: main.c or main.cpp)"
 #define MAIN_PATH_DESCRIPTION "The path of the main function (default: not set)"
 #define HELP_DESCRIPTION "Show the help message"
-
+#define WATCH_DESCRIPTION "Watch the project and generate the code when the project changes"
 #define HELP_MESSAGE "Usage: silverchain [options]\nOptions:" \
 BLUE"\n  -h, --help\t\t\t" GREEN HELP_DESCRIPTION RESET  \
 BLUE"\n  -s, --src\t\t\t" GREEN SRC_DESCRIPTION RESET \
@@ -32,4 +32,5 @@ BLUE"\n  -p, --project_short_cut\t" GREEN PROJECT_SHORT_CUT_DESCRIPTION RESET \
 BLUE"\n  -m, --implement_main\t\t" GREEN IMPLEMENT_MAIN_DESCRIPTION RESET \
 BLUE"\n  -n, --main_name\t\t" GREEN MAIN_NAME_DESCRIPTION RESET \
 BLUE"\n  -p, --main_path\t\t" GREEN MAIN_PATH_DESCRIPTION RESET \
+BLUE"\n  -w, --watch\t\t\t" GREEN WATCH_DESCRIPTION RESET \
 "\n"
