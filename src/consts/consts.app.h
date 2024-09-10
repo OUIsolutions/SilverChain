@@ -7,3 +7,9 @@
 #define REMAKING_PROJECT_MESSAGE GREEN "Remaking the project...\n" RESET
 #define WATCHING_FILES_MESSAGE YELLOW "Watching files...\n" RESET
 #define MAKING_PROJECT_MESSAGE GREEN "Making the project...\n" RESET
+
+
+
+
+
+
