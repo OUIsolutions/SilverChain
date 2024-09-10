@@ -123,6 +123,9 @@ void generate_code(
 void generate_code_in_watch_mode(const char *src,const char *import_dir,const char *project_short_cut,DtwStringArray *tags,bool implement_main,char *main_name,const char *main_path){
     char *first = NULL;
 
+     printf(MAKING_PROJECT_MESSAGE);
+    generate_code(src,import_dir,project_short_cut,tags,implement_main,main_name,main_path);
+
     while (true) {
         DtwHash *hash = dtw.hash.newHash();
         dtw.hash.digest_folder_by_content(hash,src);
@@ -136,8 +139,7 @@ void generate_code_in_watch_mode(const char *src,const char *import_dir,const ch
             printf(REMAKING_PROJECT_MESSAGE);
             generate_code(src,import_dir,project_short_cut,tags,implement_main,main_name,main_path);
             free(first);
-            
-
+            first = NULL;
         }
         dtw.hash.free(hash);
 

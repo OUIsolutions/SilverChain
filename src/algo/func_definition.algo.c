@@ -100,6 +100,9 @@ FlagColision flag_collides(DtwStringArray *flags){
     for(int i = 0; i < flags->size; i++){
         char *current_flag = flags->strings[i];
         for(int j = 0; j < flags->size; j++){
+            if(i == j){
+                continue;
+            }
             char *current_flag2 = flags->strings[j];
             if(dtw_starts_with(current_flag2,current_flag)){
                 colision.collides = true;
