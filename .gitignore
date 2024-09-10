@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-
+container
 # Object files
 *.o
 *.ko
@@ -11,7 +11,7 @@ buld_on_container.sh
 *.ilk
 *.map
 *.exp
-
+ubuntu-base.tar.gz
 # Precompiled Headers
 *.gch
 *.pch

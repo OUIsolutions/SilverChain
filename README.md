@@ -11,6 +11,11 @@ if you want to build the project you need to have a C compiler,clonate the repos
 gcc src/main.c  -o silverchain.out
 ```
 
+## PreCompiled Version
+download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.out) or
+[silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.02/silverchain.exe)
+file and put it in your project folder
+
 
 ##  Usage
 this will generate a folder called "imports" with all the imports and their dependencies, and a main.c file with the main function and the imports.
