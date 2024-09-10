@@ -10,10 +10,10 @@ char *get_main_path(DtwStringArray *src_listage,char *main_name){
      UniversalGarbage_add(garbage,dtw.path.free,path);
     for(int i = 0; i < src_listage->size;i++){
         char *current = src_listage->strings[i];
-        
+
         path = dtw.path.newPath(current);
         UniversalGarbage_resset(garbage,path);
-        
+
         char *current_name = dtw.path.get_full_name(path);
         if(main_name != NULL){
             if(strcmp(current_name,main_name) == 0){
@@ -55,7 +55,7 @@ void generate_main(
     UniversalGarbage *garbage = newUniversalGarbage();
     Tag *last_tag = itens->tags[itens->size - 1];
     char *prev = last_tag->name;
-    
+
     CTextStack *module_path = stack.newStack_string_empty();
     UniversalGarbage_add(garbage,stack.free,module_path);
 
@@ -75,17 +75,21 @@ void generate_code(
     const char *main_path
     ){
 
+
     dtw.remove_any(import_dir);
     UniversalGarbage *garbage = newUniversalGarbage();
     DtwStringArray *src_listage = dtw.list_files_recursively(src,true);
+    //grants previsbility
+    dtw.string_array.sort(src_listage);
+
     UniversalGarbage_add(garbage,dtw.string_array.free,src_listage);
 
     DtwPath *path =NULL;
     UniversalGarbage_add(garbage,dtw.path.free,path);
-    
+
     CTextStack *name_stack = NULL;
     UniversalGarbage_add(garbage,stack.free,name_stack);
-    
+
     TagList *itens = newTagList();
     UniversalGarbage_add(garbage,TagList_free,itens);
 
@@ -105,7 +109,7 @@ void generate_code(
         if(tag_index != -1){
             TagList_add_item(itens,name_stack->rendered_text,current,tag_index);
         }
-        
+
     }
 
     TagList_implement(itens,import_dir,project_short_cut);
@@ -133,6 +137,7 @@ void generate_code_in_watch_mode(const char *src,const char *import_dir,const ch
             generate_code(src,import_dir,project_short_cut,tags,implement_main,main_name,main_path);
             free(first);
             first = strdup(hash->hash);
+
         }
         dtw.hash.free(hash);
 
