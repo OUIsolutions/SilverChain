@@ -12,8 +12,8 @@ gcc src/main.c  -o silverchain.out
 ```
 
 ## PreCompiled Version
-download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.04/silverchain.out) or
-[silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.04/silverchain.exe)
+download the [silverchain.out](https://github.com/OUIsolutions/SilverChain/releases/download/v0.05/silverchain.out) or
+[silverchain.exe](https://github.com/OUIsolutions/SilverChain/releases/download/v0.05/silverchain.exe)
 file and put it in your project folder
 
 
@@ -36,6 +36,8 @@ this will generate a folder called "imports" with all the imports and their depe
 | -n, --main_name | The name of the main function | main.c or main.cpp |
 | -p, --main_path | The path of the main function | undefined |
 | -h, --help | Shows the help message | - |
+| -w, --watch | Watch the project files and rebuild if they change | - |
+| -s, --sleep_time | The time to sleep between each check (default: 0) | - |
 
 ## How it works
 basicly it makes a imports dir , giving visualization of the project modules tag after tag, lets pick the self project build comand:
