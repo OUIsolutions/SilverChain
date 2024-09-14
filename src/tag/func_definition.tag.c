@@ -48,7 +48,8 @@ void Tag_create_module_file(
 
     stack.format(final_text,"#endif\n");
 
-    dtw.write_string_file_content(final_text_path->rendered_text,final_text->rendered_text);
+
+    write_element_if_not_equal(final_text_path->rendered_text,final_text->rendered_text);
     UniversalGarbage_free(garbage);
 
 }
@@ -75,7 +76,7 @@ void replace_import_file(const char *current_file_path,const char *module_path){
     if(start_scope_index == -1){
         //means its not implemented
         stack.self_insert_at(file_content_stack,0,text_to_insert->rendered_text);
-        dtw.write_string_file_content(current_file_path,file_content_stack->rendered_text);
+        write_element_if_not_equal(current_file_path,file_content_stack->rendered_text);
         UniversalGarbage_free(garbage);
         return;;
     }
@@ -90,7 +91,7 @@ void replace_import_file(const char *current_file_path,const char *module_path){
     //replace the content
     stack.self_pop(file_content_stack,start_scope_index,end_scope_index+end_scope_size-1);
     stack.self_insert_at(file_content_stack,start_scope_index,text_to_insert->rendered_text);
-    dtw.write_string_file_content(current_file_path,file_content_stack->rendered_text);
+    write_element_if_not_equal(current_file_path,file_content_stack->rendered_text);
     UniversalGarbage_free(garbage);
 }
 

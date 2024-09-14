@@ -4,7 +4,7 @@
 #include "../imports/imports.consts.h"
 //silver_chain_scope_end
 
-typedef  struct{
+typedef  struct Tag{
     char *name;
     int priority;
     DtwStringArray *itens;

@@ -3,6 +3,7 @@
 #define silverchain_func_definition
 #include "../algo/func_definition.algo.c"
 #include "../generation/func_definition.generation.c"
+#include "../../src/io/func_definition.io_functions.c"
 #include "../tag/func_definition.tag.c"
 #include "../taglist/func_definition.taglist.c"
 #endif
