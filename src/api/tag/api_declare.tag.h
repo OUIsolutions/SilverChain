@@ -10,7 +10,7 @@ private_SilverChain_Tag *private_SilverChain_newTag(const char *name,int priorit
 
 void private_SilverChain_Tag_add_file(private_SilverChain_Tag *self,const char *file);
 
-void private_SilverChain_Tag_create_import_file(
+void private_SilverChain_Tag_create_import_dot_h_file(
     private_SilverChain_Tag *self,
     CTextStack *final_text_path,
     const char *prev_module,
