@@ -2,7 +2,8 @@
 *.d
 CAmalgamator.c
 SilverChain.c
-release
+release/*
+.cache
 SilverChainApiOne.h
 src/imports
 teste.c

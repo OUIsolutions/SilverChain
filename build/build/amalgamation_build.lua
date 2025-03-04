@@ -10,10 +10,10 @@ function amalgamation_build()
     local runtime = darwin.camalgamator.generate_amalgamation("src/cli/main.c")
     
   
-    darwin.dtw.write_file("release/CAmalgamator.c", runtime)
+    darwin.dtw.write_file("release/"..PROJECT_NAME.." .c", runtime)
 
     local api_one = darwin.camalgamator.generate_amalgamation("src/imports/imports.api_define.h")
-    darwin.dtw.write_file("release/CAmalgamatorApiOne.h", api_one)
+    darwin.dtw.write_file("release/"..PROJECT_NAME.."ApiOne.h", api_one)
 
     local max_content = darwin.camalgamator.ONE_MB * 10
     local max_recursion = 100
@@ -29,7 +29,7 @@ function amalgamation_build()
     max_content,
     max_recursion
     )    
-    darwin.dtw.write_file("release/CAmalgamatorApiNoDependenciesIncluded.h ", dependencie_not_included)
+    darwin.dtw.write_file("release/"..PROJECT_NAME.."ApiNoDependenciesIncluded.h ", dependencie_not_included)
 
 
 end
