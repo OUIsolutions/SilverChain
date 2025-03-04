@@ -12,7 +12,7 @@ private_SilverChain_Tag * private_SilverChain_TagList_find_tag_element(private_S
 
 int private_SilverChain_TagList_ordanate_tag_by_priority(const void *tag1,const void *tag2);
 
-void private_SilverChain_TagList_add_item(private_SilverChain_TagList *self, const char *tag,const char *path,int priority);
+void private_SilverChain_TagList_add_file(private_SilverChain_TagList *self, const char *tag,const char *path,int priority);
 
 SilverChainError *   private_SilverChain_TagList_implement(private_SilverChain_TagList *self,const char *point,const char *project_short_cut);
 

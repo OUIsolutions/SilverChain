@@ -21,7 +21,7 @@ private_SilverChain_Tag * private_SilverChain_TagList_find_tag_element(private_S
     return NULL;
 }
 
-void private_SilverChain_TagList_add_item(private_SilverChain_TagList *self, const char *tag,const char *path,int priority){
+void private_SilverChain_TagList_add_file(private_SilverChain_TagList *self, const char *tag,const char *path,int priority){
     private_SilverChain_Tag *tag_to_add = private_SilverChain_TagList_find_tag_element(self,tag);
     if(tag_to_add == NULL){
         tag_to_add = private_SilverChain_newTag(tag,priority);
