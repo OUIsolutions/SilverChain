@@ -53,7 +53,7 @@ void private_SilverChain_Tag_create_import_dot_h_file(
     UniversalGarbage_free(garbage);
 
 }
-SilverChainError *   private_SilverChain_replace_import_file(const char *current_file_path,const char *module_path){
+SilverChainError *   private_SilverChain_replace_import_code_in_dot_c_or_dot_h_file(const char *current_file_path,const char *module_path){
     UniversalGarbage *garbage = newUniversalGarbage();
     int end_scope_size = (int)strlen(SILVER_CHAIN_END_SCOPE);
     CTextStack *relative_path = private_SilverChain_make_relative_path(current_file_path,module_path);
@@ -118,7 +118,7 @@ SilverChainError *   private_SilverChain_replace_import_file(const char *current
     CTextStack_format(module_path,"%s/%s.%s.h",module_dir,IMPORT_NAME,prev);
     for(int i = 0; i < self->itens->size;i++){
         char *current_file_path = self->itens->strings[i];
-        SilverChainError *error =  private_SilverChain_replace_import_file(current_file_path,module_path->rendered_text);
+        SilverChainError *error =  private_SilverChain_replace_import_code_in_dot_c_or_dot_h_file(current_file_path,module_path->rendered_text);
         if(error){
             UniversalGarbage_free(garbage);
             return error;

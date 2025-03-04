@@ -60,7 +60,7 @@ SilverChainError * private_SilverChain_generate_main(
     UniversalGarbage_add(garbage,CTextStack_free,module_path);
 
     CTextStack_format(module_path,"%s/%s.%s.h",import_dir,IMPORT_NAME,prev);
-    SilverChainError *error = private_SilverChain_replace_import_file(found_main_path,module_path->rendered_text);
+    SilverChainError *error = private_SilverChain_replace_import_code_in_dot_c_or_dot_h_file(found_main_path,module_path->rendered_text);
     UniversalGarbage_free(garbage);
     return error;
 }

@@ -17,7 +17,7 @@ void private_SilverChain_Tag_create_import_dot_h_file(
     const char *project_short_cut
 );
 
-SilverChainError *   private_SilverChain_replace_import_file(const char *current_file_path,const char *module_path);
+SilverChainError *   private_SilverChain_replace_import_code_in_dot_c_or_dot_h_file(const char *current_file_path,const char *module_path);
 
 SilverChainError * private_SilverChain_Tag_replace_import_in_dot_c_or_dot_h_files(
     private_SilverChain_Tag *self,
