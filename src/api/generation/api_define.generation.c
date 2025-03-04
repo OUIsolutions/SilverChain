@@ -65,6 +65,44 @@ SilverChainError * private_SilverChain_generate_main(
     return error;
 }
 
+void private_silverchain_remove_trash_from_import_dir( SilverChainStringArray * tags,const char *import_dir){
+
+    UniversalGarbage *garbage = newUniversalGarbage();
+
+    DtwStringArray * import_files = dtw_list_files_recursively(import_dir, DTW_CONCAT_PATH);
+    UniversalGarbage_add(garbage, DtwStringArray_free, import_files);
+
+    for(int i = 0; i < import_files->size;i++){
+        UniversalGarbage *internal_garbage = newUniversalGarbage();
+        char *current_file = import_files->strings[i];
+        DtwPath *current_path = newDtwPath(current_file);
+        UniversalGarbage_add(internal_garbage, DtwPath_free, current_path);
+
+        char *full_name = DtwPath_get_full_name(current_path);
+
+        if(!dtw_starts_with(full_name, "imports.")){
+            dtw_remove_any(current_file);
+            UniversalGarbage_free(internal_garbage);
+            continue;
+        }
+        CTextArray * itens = CTextArray_split(full_name,".");
+        UniversalGarbage_add(internal_garbage, CTextArray_free, itens);
+        if(itens->size != 3){
+            dtw_remove_any(current_file);
+            UniversalGarbage_free(internal_garbage);
+            continue;
+        }
+
+        bool tag_valid = private_SilverChain_get_tag_index(tags,itens->stacks[1]->rendered_text) != -1;
+        if(!tag_valid){
+            dtw_remove_any(current_file);
+        }
+        UniversalGarbage_free(internal_garbage);
+    }
+    UniversalGarbage_free(garbage);
+
+}
+
 SilverChainError * SilverChain_generate_code(
     const char *src,
     const char *import_dir,
@@ -124,41 +162,7 @@ SilverChainError * SilverChain_generate_code(
       error =  private_SilverChain_generate_main(src_listage,import_dir,itens,main_name,main_path);
     }
 
-
-
-
-    DtwStringArray * import_files = dtw_list_files_recursively(import_dir, DTW_CONCAT_PATH);
-    UniversalGarbage_add(garbage, DtwStringArray_free, import_files);
-
-    for(int i = 0; i < import_files->size;i++){
-        UniversalGarbage *internal_garbage = newUniversalGarbage();
-        char *current_file = import_files->strings[i];
-        DtwPath *current_path = newDtwPath(current_file);
-        UniversalGarbage_add(internal_garbage, DtwPath_free, current_path);
-
-        char *full_name = DtwPath_get_full_name(current_path);
-
-        if(!dtw_starts_with(full_name, "imports.")){
-            dtw_remove_any(current_file);
-            UniversalGarbage_free(internal_garbage);
-            continue;
-        }
-        CTextArray * itens = CTextArray_split(full_name,".");
-        UniversalGarbage_add(internal_garbage, CTextArray_free, itens);
-        if(itens->size != 3){
-            dtw_remove_any(current_file);
-            UniversalGarbage_free(internal_garbage);
-            continue;
-        }
-
-        bool tag_valid = private_SilverChain_get_tag_index(tags,itens->stacks[1]->rendered_text) != -1;
-        if(!tag_valid){
-            dtw_remove_any(current_file);
-        }
-        UniversalGarbage_free(internal_garbage);
-    }
-
-
+    private_silverchain_remove_trash_from_import_dir(tags,import_dir);
 
     UniversalGarbage_free(garbage);
     return error;
