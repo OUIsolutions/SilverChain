@@ -6,9 +6,8 @@ release/*
 .cache
 SilverChainApiOne.h
 local_test.sh
-src/imports
 teste.c
-dependencies
+
 container
 # Object files
 *.o
