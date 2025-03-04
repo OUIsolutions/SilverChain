@@ -5,18 +5,29 @@ SilverChain is a unified import model for C, it allows you to import modules and
 
 [video explanation](https://www.youtube.com/watch?v=mU4QbZATKfo)
 
-## Build
-for building the project you can just type the following command (note that you must have a gcc compiler for it)
-```bash
-curl -L https://github.com/OUIsolutions/SilverChain/releases/download/v0.07/SilverChain.c -o SilverChain.c &&
-gcc SilverChain.c -o SilverChain.o
+
+
+## Releases
+| item          | plataform |
+|-------        |-----------|
+| [CAmalgamator.c](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamator.c)| Source  |
+| [CAmalgamatorApiOne.h](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamatorApiOne.h)| Source of The Lib  |
+| [CAmalgamatorApiNoDependenciesIncluded.h](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamatorApiNoDependenciesIncluded.h)| Lib without dependenies  |
+| [CAmalgamator.out](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamator.out)| Linux Binary |
+| [CAmalgamator64.exe](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamator64.exe)| Windows 64 Binary |
+| [CAmalgamatori32.exe](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamatori32.exe)| Windows i32 Binary |
+| [CAmalgamator.rpm](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamator.rpm)| fedora/rehl/centos package |
+| [CAmalgamator.deb](https://github.com/OUIsolutions/CAmalgamator/releases/download/0.0.4/CAmalgamator.deb)| debian/ubuntu package |
+
+
+## Building from Scratch
+if you want to build the code from scracth  you need to have [Darwin](https://github.com/OUIsolutions/Darwin) 
+installed on versio **0.020** and **Docker** our **Podman** installed on your machine.
+After install all dependecies,clone the repo on your machine , than run:
+```shel
+ darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build debian_static_build
 ```
-## Build From scratch
-if you want to build from scracth , you just need to clone the repo, then call:
-```shell
-sh install_dependencies.sh && sh build.sh
-```
-it will generate all the outputs in the **release* folder
+
 
 
 ##  Usage
