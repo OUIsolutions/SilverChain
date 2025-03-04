@@ -17,7 +17,7 @@ void private_SilverChain_Tag_add_file(private_SilverChain_Tag *self,const char *
     DtwStringArray_append(self->itens,file);
 }
 
-void private_SilverChain_Tag_create_module_file(
+void private_SilverChain_Tag_create_import_file(
     private_SilverChain_Tag *self,
     CTextStack *final_text_path,
     const char *prev_module,
@@ -138,7 +138,7 @@ SilverChainError *  private_SilverChain_Tag_implement(
     UniversalGarbage_add(garbage,CTextStack_free,import_module_file_path);
     CTextStack_format(import_module_file_path,"%s/%s.%s.h",module_dir,IMPORT_NAME,self->name);
 
-    private_SilverChain_Tag_create_module_file(self,import_module_file_path,prev,project_short_cut);
+    private_SilverChain_Tag_create_import_file(self,import_module_file_path,prev,project_short_cut);
     SilverChainError *  error =  private_SilverChain_Tag_replace_import_in_files(self,module_dir,prev);
     UniversalGarbage_free(garbage);
     return error;
