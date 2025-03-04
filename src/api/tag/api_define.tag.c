@@ -58,6 +58,10 @@ SilverChainError *   private_SilverChain_replace_import_code_in_dot_c_or_dot_h_f
     int end_scope_size = (int)strlen(SILVER_CHAIN_END_SCOPE);
     CTextStack *relative_path = private_SilverChain_make_relative_path(current_file_path,module_path);
     
+    printf("------------------------------------------\n");
+    printf("current_file_path: %s\n",current_file_path);
+    printf("module_path: %s\n",module_path);
+    printf("relative_path: %s\n",relative_path->rendered_text);
 
     UniversalGarbage_add(garbage,CTextStack_free,relative_path);
 
