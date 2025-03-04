@@ -57,6 +57,8 @@ SilverChainError *   private_SilverChain_replace_import_file(const char *current
     UniversalGarbage *garbage = newUniversalGarbage();
     int end_scope_size = (int)strlen(SILVER_CHAIN_END_SCOPE);
     CTextStack *relative_path = private_SilverChain_make_relative_path(current_file_path,module_path);
+    
+
     UniversalGarbage_add(garbage,CTextStack_free,relative_path);
 
     CTextStack *text_to_insert = newCTextStack_string(SILVER_CHAIN_START_SCOPE);
@@ -101,7 +103,7 @@ SilverChainError *   private_SilverChain_replace_import_file(const char *current
 }
 
 
- SilverChainError * private_SilverChain_Tag_replace_import_in_files(
+ SilverChainError * private_SilverChain_Tag_replace_import_in_dot_c_or_dot_h_files(
     private_SilverChain_Tag *self,
     const char *module_dir,
     const char *prev
@@ -139,7 +141,7 @@ SilverChainError *  private_SilverChain_Tag_implement(
     CTextStack_format(import_module_file_path,"%s/%s.%s.h",module_dir,IMPORT_NAME,self->name);
 
     private_SilverChain_Tag_create_import_file(self,import_module_file_path,prev,project_short_cut);
-    SilverChainError *  error =  private_SilverChain_Tag_replace_import_in_files(self,module_dir,prev);
+    SilverChainError *  error =  private_SilverChain_Tag_replace_import_in_dot_c_or_dot_h_files(self,module_dir,prev);
     UniversalGarbage_free(garbage);
     return error;
 }

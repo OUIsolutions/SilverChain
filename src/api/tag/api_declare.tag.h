@@ -19,7 +19,7 @@ void private_SilverChain_Tag_create_import_file(
 
 SilverChainError *   private_SilverChain_replace_import_file(const char *current_file_path,const char *module_path);
 
-SilverChainError * private_SilverChain_Tag_replace_import_in_files(
+SilverChainError * private_SilverChain_Tag_replace_import_in_dot_c_or_dot_h_files(
     private_SilverChain_Tag *self,
     const char *module_dir,
     const char *prev
