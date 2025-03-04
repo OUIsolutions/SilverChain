@@ -63,7 +63,7 @@ CTextStack * private_SilverChain_make_relative_path(
     while (count_to_substract < lower_size){
         if(formmated_current_path->rendered_text[count_to_substract] != formmated_dest_path->rendered_text[count_to_substract]){
 
-            if(formmated_current_path->rendered_text[count_to_substract-1] != '/' || formmated_dest_path->rendered_text[count_to_substract-1] != '/'){
+            if(formmated_current_path->rendered_text[count_to_substract-1] != '//' || formmated_dest_path->rendered_text[count_to_substract-1] != '/'){
                 count_to_substract =0;
             }
             break;
