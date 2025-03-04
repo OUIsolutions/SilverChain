@@ -1,6 +1,6 @@
 PROJECT_NAME = "SilverChain"
 CONTANIZER   = "podman"
-VERSION      = "0.0.8"
+VERSION      = "0.0.9"
 LICENSE      = "MIT"
 URL          = "https://github.com/OUIsolutions/SilverChain"
 DESCRIPITION = "SilverChain is a unified import model for C, it allows you to import modules and use their functions and variables in a more organized and efficient way."
