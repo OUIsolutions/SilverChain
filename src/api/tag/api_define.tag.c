@@ -58,18 +58,17 @@ SilverChainError *   private_SilverChain_replace_import_code_in_dot_c_or_dot_h_f
     int end_scope_size = (int)strlen(SILVER_CHAIN_END_SCOPE);
     CTextStack *relative_path = private_SilverChain_make_relative_path(current_file_path,module_path);
     
-    printf("------------------------------------------\n");
-    printf("current_file_path: %s\n",current_file_path);
-    printf("module_path: %s\n",module_path);
-    printf("relative_path: %s\n",relative_path->rendered_text);
-    
+   
     UniversalGarbage_add(garbage,CTextStack_free,relative_path);
 
     CTextStack *text_to_insert = newCTextStack_string(SILVER_CHAIN_START_SCOPE);
+    CTextStack_text(text_to_insert,"\n");
+
     UniversalGarbage_add(garbage,CTextStack_free,text_to_insert);
     CTextStack_format(text_to_insert,"%s",MANAGED_SYSTEM);
     CTextStack_format(text_to_insert,"#include \"%t\"\n",relative_path);
     CTextStack_text(text_to_insert,SILVER_CHAIN_END_SCOPE);
+    CTextStack_text(text_to_insert,"\n");
 
 
     char *file_content = dtw_load_string_file_content(current_file_path);

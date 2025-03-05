@@ -140,7 +140,6 @@ SilverChainError * SilverChain_generate_code(
         CTextStack *current_file_full_path_stack = newCTextStack_string(unformmated_path);
         CTextStack_self_replace(current_file_full_path_stack,"\\","/");
         CTextStack_self_replace(current_file_full_path_stack,"//","/");
-        printf("%s\n",current_file_full_path_stack->rendered_text);
 
 
         path = newDtwPath(current_file_full_path_stack->rendered_text);
