@@ -57,12 +57,12 @@ SilverChainError *   private_SilverChain_replace_import_code_in_dot_c_or_dot_h_f
     UniversalGarbage *garbage = newUniversalGarbage();
     int end_scope_size = (int)strlen(SILVER_CHAIN_END_SCOPE);
     CTextStack *relative_path = private_SilverChain_make_relative_path(current_file_path,module_path);
-    
+        /*
     printf("------------------------------------------\n");
     printf("current_file_path: %s\n",current_file_path);
     printf("module_path: %s\n",module_path);
     printf("relative_path: %s\n",relative_path->rendered_text);
-
+    */
     UniversalGarbage_add(garbage,CTextStack_free,relative_path);
 
     CTextStack *text_to_insert = newCTextStack_string(SILVER_CHAIN_START_SCOPE);
@@ -116,13 +116,13 @@ SilverChainError *   private_SilverChain_replace_import_code_in_dot_c_or_dot_h_f
         return NULL;
     }
     UniversalGarbage *garbage = newUniversalGarbage();
-    CTextStack *module_path = newCTextStack_string_empty();
-    UniversalGarbage_add(garbage,CTextStack_free,module_path);
+    CTextStack *prev_tag_moduule = newCTextStack_string_empty();
+    UniversalGarbage_add(garbage,CTextStack_free,prev_tag_moduule);
 
-    CTextStack_format(module_path,"%s/%s.%s.h",module_dir,IMPORT_NAME,prev);
+    CTextStack_format(prev_tag_moduule,"%s/%s.%s.h",module_dir,IMPORT_NAME,prev);
     for(int i = 0; i < self->itens->size;i++){
         char *current_file_path = self->itens->strings[i];
-        SilverChainError *error =  private_SilverChain_replace_import_code_in_dot_c_or_dot_h_file(current_file_path,module_path->rendered_text);
+        SilverChainError *error =  private_SilverChain_replace_import_code_in_dot_c_or_dot_h_file(current_file_path,prev_tag_moduule->rendered_text);
         if(error){
             UniversalGarbage_free(garbage);
             return error;
