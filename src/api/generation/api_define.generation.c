@@ -161,16 +161,23 @@ SilverChainError * SilverChain_generate_code(
 
     }
 
-    SilverChainError *error =  private_SilverChain_TagList_implement(itens,import_dir,project_short_cut);
+
+    CTextStack *formated_import_dir = newCTextStack_string(import_dir);
+    UniversalGarbage_add(garbage,CTextStack_free,formated_import_dir);
+    CTextStack_self_replace(formated_import_dir,"\\","/");
+    CTextStack_self_replace(formated_import_dir,"//","/");
+
+
+    SilverChainError *error =  private_SilverChain_TagList_implement(itens,formated_import_dir->rendered_text,project_short_cut);
     if(error){
         UniversalGarbage_free(garbage);
         return error;
     }
     if(implement_main){
-      error =  private_SilverChain_generate_main(src_listage,import_dir,itens,main_name,main_path);
+      error =  private_SilverChain_generate_main(src_listage,formated_import_dir->rendered_text,itens,main_name,main_path);
     }
 
-    private_silverchain_remove_trash_from_import_dir(tags,import_dir);
+    private_silverchain_remove_trash_from_import_dir(tags,formated_import_dir->rendered_text);
 
     UniversalGarbage_free(garbage);
     return error;
