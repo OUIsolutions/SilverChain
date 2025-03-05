@@ -43,16 +43,26 @@ SilverChainError * private_SilverChain_generate_main(
     const char *main_path
 
 ){
-    const char *found_main_path = main_path;
+    const char *unformatted_main_path = main_path;
     if(main_path == NULL){
-        found_main_path = private_SilverChain_get_main_path(src_listage,main_name);
+        unformatted_main_path = private_SilverChain_get_main_path(src_listage,main_name);
     }
 
-    if(found_main_path == NULL){
+    if(unformatted_main_path == NULL){
         return NULL;
     }
 
+
     UniversalGarbage *garbage = newUniversalGarbage();
+
+    CTextStack *formmated_main_path = newCTextStack_string(unformatted_main_path);
+    UniversalGarbage_add(garbage,CTextStack_free,formmated_main_path);
+
+    CTextStack_self_replace(formmated_main_path,"\\","/");
+    CTextStack_self_replace(formmated_main_path,"//","/");
+    char *found_main_path = formmated_main_path->rendered_text;
+
+
     private_SilverChain_Tag *last_tag = itens->tags[itens->size - 1];
     char *prev = last_tag->name;
 
