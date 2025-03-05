@@ -98,7 +98,7 @@ SilverChainError *   private_SilverChain_replace_import_code_in_dot_c_or_dot_h_f
     }
 
     //replace the content
-    CTextStack_self_pop(file_content_stack,start_scope_index,end_scope_index+end_scope_size-1);
+    CTextStack_self_pop(file_content_stack,start_scope_index,end_scope_index+end_scope_size);
     CTextStack_self_insert_at(file_content_stack,start_scope_index,text_to_insert->rendered_text);
     private_SilverChain_write_element_if_not_equal(current_file_path,file_content_stack->rendered_text);
     UniversalGarbage_free(garbage);
