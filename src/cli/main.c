@@ -25,7 +25,7 @@ int main(int argc,char *argv[]){
     }
     CliFlag *version_flag = cli.entry.get_flag(entry,VERSION_FLAG,CLI_NOT_CASE_SENSITIVE);
     if(version_flag->exist){
-        printf("%s\n",VERSION_MESSAGE);
+        printf("SilverChain: %s\n",VERSION_MESSAGE);
         UniversalGarbage_free(garbage);
         return 1;
     }
