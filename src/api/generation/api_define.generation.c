@@ -135,8 +135,14 @@ SilverChainError * SilverChain_generate_code(
     UniversalGarbage_add(garbage,private_SilverChain_TagList_free,itens);
 
     for(int i = 0; i <src_listage->size;i++){
-        char *current_file_full_path = src_listage->strings[i];
-        path = newDtwPath(current_file_full_path);
+        
+        char *unformmated_path = src_listage->strings[i];
+        CTextStack *current_file_full_path_stack = newCTextStack_string(unformmated_path);
+        CTextStack_self_replace(current_file_full_path_stack,"\\","/");
+        CTextStack_self_replace(current_file_full_path_stack,"//","/");
+
+
+        path = newDtwPath(current_file_full_path_stack->rendered_text);
         UniversalGarbage_resset(garbage,path);
 
         char *name = DtwPath_get_name(path);
@@ -148,8 +154,9 @@ SilverChainError * SilverChain_generate_code(
 
         int tag_index = private_SilverChain_get_tag_index((DtwStringArray*)tags,name_stack->rendered_text);
         if(tag_index != SILVER_CHAIN_NOT_FOUND){
-            private_SilverChain_TagList_add_file(itens,name_stack->rendered_text,current_file_full_path,tag_index);
+            private_SilverChain_TagList_add_file(itens,name_stack->rendered_text,current_file_full_path_stack->rendered_text,tag_index);
         }
+        CTextStack_free(current_file_full_path_stack);
 
     }
 
