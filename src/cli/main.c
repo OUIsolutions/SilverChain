@@ -23,6 +23,12 @@ int main(int argc,char *argv[]){
         UniversalGarbage_free(garbage);
         return 1;
     }
+    CliFlag *version_flag = cli.entry.get_flag(entry,VERSION_FLAG,CLI_NOT_CASE_SENSITIVE);
+    if(version_flag->exist){
+        printf("%s\n",VERSION_MESSAGE);
+        UniversalGarbage_free(garbage);
+        return 1;
+    }
 
     CliFlag *src_flag = cli.entry.get_flag(entry,SRC_FLAG,CLI_NOT_CASE_SENSITIVE);
 
