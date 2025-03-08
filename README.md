@@ -51,6 +51,8 @@ this will generate a folder called "imports" with all the imports and their depe
 | -h, --help | Shows the help message | - |
 | -w, --watch | Watch the project files and rebuild if they change | - |
 | -s, --sleep_time | The time to sleep between each check (default: 0) | - |
+| -v, --version | Shows the version | - |
+| -r, --remove | Remove the imports folder | - |
 
 ## How it works
 basicly it makes a imports dir , giving visualization of the project modules tag after tag, lets pick the self project build comand:
