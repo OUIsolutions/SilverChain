@@ -28,6 +28,8 @@
 #define HELP_DESCRIPTION "Show the help message"
 #define WATCH_DESCRIPTION "Watch the project and generate the code when the project changes"
 #define SLEEP_TIME_DESCRIPTION "The time to sleep between each check (default: 0)"
+#define VERSION_DESCRIPTION "Show the version"
+#define REMOVE_DESCRIPTION "Remove SilverChain implementations from src dir"
 #define HELP_MESSAGE "Usage: silverchain [options]\nOptions:" \
 BLUE"\n  -h, --help\t\t\t" GREEN HELP_DESCRIPTION RESET  \
 BLUE"\n  -s, --src\t\t\t" GREEN SRC_DESCRIPTION RESET \
@@ -39,6 +41,6 @@ BLUE"\n  -n, --main_name\t\t" GREEN MAIN_NAME_DESCRIPTION RESET \
 BLUE"\n  -p, --main_path\t\t" GREEN MAIN_PATH_DESCRIPTION RESET \
 BLUE"\n  -w, --watch\t\t\t" GREEN WATCH_DESCRIPTION RESET \
 BLUE"\n  -s, --sleep_time\t\t" GREEN SLEEP_TIME_DESCRIPTION RESET \
-BLUE"\n  -v, --version\t\t" GREEN "Show the version" RESET \
-BLUE"\n  -r, --remove\t\t" GREEN "Remove SilverChain implementations from src dir" RESET \
+BLUE"\n  -v, --version\t\t\t" GREEN VERSION_DESCRIPTION RESET \
+BLUE"\n  -r, --remove\t\t\t" GREEN REMOVE_DESCRIPTION RESET \
 "\n"
