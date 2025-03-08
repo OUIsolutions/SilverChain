@@ -10,14 +10,14 @@ SilverChain is a unified import model for C, it allows you to import modules and
 ## Releases
 | item          | plataform |
 |-------        |-----------|
-| [SilverChain.c](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChain.c)| Source  |
-| [SilverChainApiOne.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChainApiOne.h)| Source of The Lib  |
-| [SilverChainApiNoDependenciesIncluded.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChainApiNoDependenciesIncluded.h)| Lib without dependenies  |
-| [SilverChain.out](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChain.out)| Linux Binary |
-| [SilverChain64.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChain64.exe)| Windows 64 Binary |
-| [SilverChaini32.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChaini32.exe)| Windows i32 Binary |
-| [SilverChain.rpm](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChain.rpm)| fedora/rehl/centos package |
-| [SilverChain.deb](https://github.com/OUIsolutions/SilverChain/releases/download/0.1.0/SilverChain.deb)| debian/ubuntu package |
+| [SilverChain.c](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.c)| Source  |
+| [SilverChainApiOne.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChainApiOne.h)| Source of The Lib  |
+| [SilverChainApiNoDependenciesIncluded.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChainApiNoDependenciesIncluded.h)| Lib without dependenies  |
+| [SilverChain.out](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.out)| Linux Binary |
+| [SilverChain64.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain64.exe)| Windows 64 Binary |
+| [SilverChaini32.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChaini32.exe)| Windows i32 Binary |
+| [SilverChain.rpm](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.rpm)| fedora/rehl/centos package |
+| [SilverChain.deb](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.deb)| debian/ubuntu package |
 
 
 ## Building from Scratch
