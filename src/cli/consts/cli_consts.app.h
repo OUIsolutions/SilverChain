@@ -8,4 +8,4 @@
 
 
 #define SLEEP_TIME_DEFAULT 1
-#define VERSION_MESSAGE "0.1.1"
+#define VERSION_MESSAGE "0.2.1"
