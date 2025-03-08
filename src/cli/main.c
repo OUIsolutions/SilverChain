@@ -41,6 +41,14 @@ int main(int argc,char *argv[]){
            return 1;
     }
 
+    CliFlag *remove_flag = cli.entry.get_flag(entry,REMOVE_FLAG,CLI_NOT_CASE_SENSITIVE);
+    if(remove_flag->exist){
+        const char *src = cli.flag.get_str(src_flag,0,CLI_CASE_SENSITIVE);
+        silverchain.remove_start_end_from_folder(src);
+        UniversalGarbage_free(garbage);
+        return 1;
+    }
+
     char *src = cli.flag.get_str(src_flag,0,CLI_CASE_SENSITIVE);
     if(dtw.entity_type(src) != DTW_FOLDER_TYPE){
         printf(SRC_ITS_NOT_A_DIR);

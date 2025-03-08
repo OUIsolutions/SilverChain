@@ -7,6 +7,7 @@
 //silver_chain_scope_end
 #define VERSION_FLAG "v | version"
 #define SRC_FLAG "s | src | source"
+#define REMOVE_FLAG "r | remove"
 #define IMPORT_FLAG "i | i mportdir"
 #define TAG_FLAG "t | tags"
 #define PROJECT_SHORT_CUT_FLAG "p | project_short_cut"
@@ -38,4 +39,6 @@ BLUE"\n  -n, --main_name\t\t" GREEN MAIN_NAME_DESCRIPTION RESET \
 BLUE"\n  -p, --main_path\t\t" GREEN MAIN_PATH_DESCRIPTION RESET \
 BLUE"\n  -w, --watch\t\t\t" GREEN WATCH_DESCRIPTION RESET \
 BLUE"\n  -s, --sleep_time\t\t" GREEN SLEEP_TIME_DESCRIPTION RESET \
+BLUE"\n  -v, --version\t\t" GREEN "Show the version" RESET \
+BLUE"\n  -r, --remove\t\t" GREEN "Remove SilverChain implementations from src dir" RESET \
 "\n"
