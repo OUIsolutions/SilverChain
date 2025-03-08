@@ -1,10 +1,4 @@
 
-//silver_chain_scope_start
-//DONT MODIFY THIS COMMENT
-//this import is computationally generated
-//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "../../imports/imports.api_dependencies.h"
-//silver_chain_scope_end
 
 
 const char *  SILVER_CHAIN_FILE_NOT_PROVIDED_ERROR_MESSAGE = "\033[31mfile %s not provides  end scope\n\033[0m";

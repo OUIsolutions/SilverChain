@@ -1,10 +1,4 @@
 
-//silver_chain_scope_start
-//DONT MODIFY THIS COMMENT
-//this import is computationally generated
-//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "../../imports/imports.api_declare.h"
-//silver_chain_scope_end
 
 private_SilverChain_Tag *private_SilverChain_newTag(const char *name,int priority){
     private_SilverChain_Tag *self = (private_SilverChain_Tag*)malloc(sizeof(private_SilverChain_Tag));
