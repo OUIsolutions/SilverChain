@@ -1,3 +1,9 @@
+//silver_chain_scope_start
+//DONT MODIFY THIS COMMENT
+//this import is computationally generated
+//mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
+#include "../../imports/imports.cli_dependencies.h"
+//silver_chain_scope_end
 
 #define VERSION_FLAG "v | version"
 #define SRC_FLAG "s | src | source"
