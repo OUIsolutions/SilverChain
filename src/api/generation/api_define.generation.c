@@ -235,7 +235,11 @@ void  SilverChain_generate_code_in_watch_mode(
         }
         DtwHash_free(hash);
         if(sleep_time > 0){
+            #ifdef _WIN32
+            Sleep(sleep_time * 1000);
+            #else
             sleep(sleep_time);
+            #endif
         }
     }
 
