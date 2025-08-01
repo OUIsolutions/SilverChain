@@ -32,6 +32,13 @@ void SilverCHain_remove_start_end_from_folder(const char *src){
         }
 
         CTextStack *formatted = newCTextStack_string(content);
+        if(CTextStack_index_of(formatted,"silver_chain_internal_unchanged") != -1){
+            // If the file is marked as not changed, skip it
+            CTextStack_free(formatted);
+            free(content);
+            continue;
+        }
+
         bool has_changes = true;
         
         // Keep removing SilverChain scopes until no more are found
