@@ -5,6 +5,59 @@
 
 
 
+char *SilverChain_remove_start_end_from_string(const char *input) {
+    if(input == NULL) {
+        return NULL;
+    }
+    
+    CTextStack *formatted = newCTextStack_string(input);
+    if(formatted == NULL) {
+        return NULL;
+    }
+    
+    // Use the existing removal logic
+    SilverChain_remove_start_end_from_CTextStack(formatted);
+    
+    // Create a copy of the result
+    char *result = strdup(formatted->rendered_text);
+    
+    CTextStack_free(formatted);
+    return result;
+}
+
+void SilverChain_remove_start_end_from_CTextStack(CTextStack *stack) {
+    if(stack == NULL) {
+        return;
+    }
+    
+    if(CTextStack_index_of(stack, "silver_chain_internal_unchanged") != -1) {
+        // If the content is marked as not changed, skip it
+        return;
+    }
+    
+    int end_scope_size = (int)strlen(SILVER_CHAIN_END_SCOPE);
+    bool has_changes = true;
+    
+    // Keep removing SilverChain scopes until no more are found
+    while(has_changes) {
+        has_changes = false;
+        
+        int start_scope_index = CTextStack_index_of(stack, SILVER_CHAIN_START_SCOPE);
+        if(start_scope_index == SILVER_CHAIN_NOT_FOUND) {
+            break;
+        }
+
+        int end_scope_index = CTextStack_index_of(stack, SILVER_CHAIN_END_SCOPE);
+        if(end_scope_index == -1) {
+            break;
+        }
+
+        // Remove the scope content
+        CTextStack_self_pop(stack, start_scope_index, end_scope_index + end_scope_size);
+        has_changes = true;
+    }
+}
+
 void SilverCHain_remove_start_end_from_folder(const char *src){
     bool CONCAT_PATH = true;
     DtwStringArray *files = NULL;
@@ -23,8 +76,6 @@ void SilverCHain_remove_start_end_from_folder(const char *src){
         return;
     }
     
-    int end_scope_size = (int)strlen(SILVER_CHAIN_END_SCOPE);
-
     for(int i = 0; i < files->size; i++){
         char *content = dtw_load_string_file_content(files->strings[i]);
         if(content == NULL){
@@ -32,33 +83,9 @@ void SilverCHain_remove_start_end_from_folder(const char *src){
         }
 
         CTextStack *formatted = newCTextStack_string(content);
-        if(CTextStack_index_of(formatted,"silver_chain_internal_unchanged") != -1){
-            // If the file is marked as not changed, skip it
-            CTextStack_free(formatted);
-            free(content);
-            continue;
-        }
-
-        bool has_changes = true;
         
-        // Keep removing SilverChain scopes until no more are found
-        while(has_changes){
-            has_changes = false;
-            
-            int start_scope_index = CTextStack_index_of(formatted, SILVER_CHAIN_START_SCOPE);
-            if(start_scope_index == SILVER_CHAIN_NOT_FOUND){
-                break;
-            }
-
-            int end_scope_index = CTextStack_index_of(formatted, SILVER_CHAIN_END_SCOPE);
-            if(end_scope_index == -1){
-                break;
-            }
-
-            // Remove the scope content
-            CTextStack_self_pop(formatted, start_scope_index, end_scope_index + end_scope_size);
-            has_changes = true;
-        }
+        // Use the new CTextStack removal function
+        SilverChain_remove_start_end_from_CTextStack(formatted);
         
         // Write the cleaned content back to file
         dtw_write_string_file_content(files->strings[i], formatted->rendered_text);
