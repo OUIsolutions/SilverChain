@@ -1,5 +1,5 @@
 PROJECT_NAME = "SilverChain"
-CONTANIZER   = "podman"
+CONTANIZER   =  darwin.argv.get_flag_arg_by_index({ "contanizer", }, 1,"sudo docker" )
 VERSION      = "0.0.9"
 LICENSE      = "MIT"
 URL          = "https://github.com/OUIsolutions/SilverChain"

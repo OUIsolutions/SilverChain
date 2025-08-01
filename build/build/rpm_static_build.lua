@@ -60,10 +60,12 @@ chmod +x %{buildroot}/usr/local/bin/PROJECT_NAME
     darwin.dtw.write_file(".cache/rpm_static_build/SPECS/project.spec", formmatted_rpm)
     os.execute("mkdir -p .cache/rpm_static_build/RPMS")
 
-    local image = darwin.ship.create_machine("fedora:latest")
+    local image = darwin.ship.create_machine("almalinux:latest")
     image.add_comptime_command("dnf install rpm-build rpmdevtools -y")
     image.add_comptime_command("dnf install gcc -y")
     image.add_comptime_command("rpmdev-setuptree")
+    image.provider = CONTANIZER
+
     image.start({
         flags = {
             "-it "
