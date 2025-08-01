@@ -71,9 +71,9 @@ If you have a C project with scattered files like:
 
 | 🖥️ **Your Computer** | 📁 **Download This** | 🏃‍♂️ **How to Use** |
 |---------------------|---------------------|---------------------|
-| 🐧 **Linux** | [SilverChain.out](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.out) | Download → Make executable → Run! |
-| 🪟 **Windows (64-bit)** | [SilverChain64.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain64.exe) | Download → Double-click → Use! |
-| 🪟 **Windows (32-bit)** | [SilverChaini32.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChaini32.exe) | Download → Double-click → Use! |
+| 🐧 **Linux** | [SilverChain.out](https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChain.out) | Download → Make executable → Run! |
+| 🪟 **Windows (64-bit)** | [SilverChain64.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChain64.exe) | Download → Double-click → Use! |
+| 🪟 **Windows (32-bit)** | [SilverChaini32.exe](https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChaini32.exe) | Download → Double-click → Use! |
 
 </div>
 
@@ -82,7 +82,7 @@ If you have a C project with scattered files like:
 **🐧 Linux Users (Easiest Way Ever!):**
 ```bash
 # Just copy and paste this into your terminal!
-curl -L https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.out -o SilverChain
+curl -L https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChain.out -o SilverChain
 chmod +x SilverChain
 
 # Now you can use it like this:
@@ -92,7 +92,7 @@ chmod +x SilverChain
 **🐧 Ubuntu/Debian Users (Even Easier!):**
 ```bash
 # Download the package
-wget https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.deb
+wget https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChain.deb
 
 # Install it (you'll need to enter your password)
 sudo dpkg -i SilverChain.deb
@@ -105,10 +105,10 @@ SilverChain --help
 
 | 📁 **File** | 🎯 **Best For** | 📝 **Description** |
 |-------------|-----------------|-------------------|
-| [⚡️ SilverChain.c](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.c) | Developers who want to compile | Complete source code |
-| [📚 SilverChainApiOne.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChainApiOne.h) | Use in your C programs | Full API library |
-| [📦 SilverChainApiNoDependenciesIncluded.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChainApiNoDependenciesIncluded.h) | Minimal integration | Lightweight version |
-| [📦 SilverChain.rpm](https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChain.rpm) | Fedora/RHEL/CentOS | RPM package |
+| [⚡️ SilverChain.c](https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChain.c) | Developers who want to compile | Complete source code |
+| [📚 SilverChainApiOne.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChainApiOne.h) | Use in your C programs | Full API library |
+| [📦 SilverChainApiNoDependenciesIncluded.h](https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChainApiNoDependenciesIncluded.h) | Minimal integration | Lightweight version |
+| [📦 SilverChain.rpm](https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChain.rpm) | Fedora/RHEL/CentOS | RPM package |
 
 
 ---
@@ -470,7 +470,7 @@ imports/
 **Download the API header file:**
 ```bash
 # Get the complete API (easiest way)
-curl -L https://github.com/OUIsolutions/SilverChain/releases/download/0.2.1/SilverChainApiOne.h -o SilverChainApiOne.h
+curl -L https://github.com/OUIsolutions/SilverChain/releases/download/0.3.0/SilverChainApiOne.h -o SilverChainApiOne.h
 ```
 
 ### 🎬 Simple Example (Your First API Program!)
