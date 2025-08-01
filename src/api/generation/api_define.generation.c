@@ -1,7 +1,3 @@
-//silver_chain_scope_start
-//mannaged by silver chain: https://github.com/OUIsolutions/SilverChain
-#include "../../imports/imports.api_declare.h"
-//silver_chain_scope_end
 
 
 char *private_SilverChain_get_main_path(DtwStringArray *src_listage,const char *main_name){

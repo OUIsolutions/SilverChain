@@ -1,7 +1,3 @@
-//silver_chain_scope_start
-//mannaged by silver chain: https://github.com/OUIsolutions/SilverChain
-#include "../../imports/imports.cli_dependencies.h"
-//silver_chain_scope_end
 
 
 #define RESET "\033[0m"

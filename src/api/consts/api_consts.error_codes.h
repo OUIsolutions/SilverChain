@@ -1,7 +1,3 @@
-//silver_chain_scope_start
-//mannaged by silver chain: https://github.com/OUIsolutions/SilverChain
-#include "../../imports/imports.api_dependencies.h"
-//silver_chain_scope_end
 
 #define SILVER_CHAIN_END_SCOPE_NOT_PROVIDED 1
 #define SILVER_CHAIN_NOT_FOUND -1
